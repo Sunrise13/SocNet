@@ -16,7 +16,7 @@
 
 
 
-- (void) shareText:(NSString *)text image:(UIImage *)image
+- (void) share
 {
     
     @try {

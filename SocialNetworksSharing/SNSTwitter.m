@@ -14,7 +14,8 @@
 @implementation SNSTwitter
 
 
-- (void)shareText:(NSString *)text image:(UIImage *)image {
+- (void)share
+{
     
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
     {

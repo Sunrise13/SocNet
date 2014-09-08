@@ -51,12 +51,12 @@
 		1D6F40B119BDBDE0008F92E8 /* NSString+StringBetween.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F40B019BDBDE0008F92E8 /* NSString+StringBetween.m */; };
 		1D6F40B419BDBE28008F92E8 /* SNSVkToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F40B319BDBE28008F92E8 /* SNSVkToken.m */; };
 		1D6F40B719BDC266008F92E8 /* SNSTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F40B619BDC266008F92E8 /* SNSTwitter.m */; };
+		3026D40F19BDFC4500928EE0 /* SLVOAuthSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3026D40E19BDFC4500928EE0 /* SLVOAuthSetup.m */; };
+		3026D41119BDFC4F00928EE0 /* SLVTokenSocialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3026D41019BDFC4F00928EE0 /* SLVTokenSocialManager.m */; };
 		D26894FC19BD8E6A0079E5B4 /* SLVDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D26894F819BD8E6A0079E5B4 /* SLVDBManager.m */; };
 		D26894FD19BD8E6A0079E5B4 /* Users.m in Sources */ = {isa = PBXBuildFile; fileRef = D26894FA19BD8E6A0079E5B4 /* Users.m */; };
 		D26894FE19BD8E6A0079E5B4 /* Model.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = D26894FB19BD8E6A0079E5B4 /* Model.xcdatamodel */; };
 		D268950119BD8E870079E5B4 /* SLVLinkedInApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D268950019BD8E870079E5B4 /* SLVLinkedInApi.m */; };
-		D268950F19BDB5EC0079E5B4 /* SLVOAuthSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = D268950E19BDB5EC0079E5B4 /* SLVOAuthSetup.m */; };
-		D268951319BDBA880079E5B4 /* SLVTokenSocialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D268951219BDBA880079E5B4 /* SLVTokenSocialManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +150,8 @@
 		1D6F40B319BDBE28008F92E8 /* SNSVkToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSVkToken.m; sourceTree = "<group>"; };
 		1D6F40B519BDC266008F92E8 /* SNSTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNSTwitter.h; sourceTree = "<group>"; };
 		1D6F40B619BDC266008F92E8 /* SNSTwitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSTwitter.m; sourceTree = "<group>"; };
+		3026D40E19BDFC4500928EE0 /* SLVOAuthSetup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SLVOAuthSetup.m; path = SocialNetworksSharing/SLVOAuthSetup.m; sourceTree = "<group>"; };
+		3026D41019BDFC4F00928EE0 /* SLVTokenSocialManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SLVTokenSocialManager.m; path = SocialNetworksSharing/SLVTokenSocialManager.m; sourceTree = "<group>"; };
 		D26894F719BD8E6A0079E5B4 /* SLVDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLVDBManager.h; sourceTree = "<group>"; };
 		D26894F819BD8E6A0079E5B4 /* SLVDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLVDBManager.m; sourceTree = "<group>"; };
 		D26894F919BD8E6A0079E5B4 /* Users.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Users.h; sourceTree = "<group>"; };
@@ -159,11 +161,6 @@
 		D268950019BD8E870079E5B4 /* SLVLinkedInApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLVLinkedInApi.m; sourceTree = "<group>"; };
 		D268950B19BDA8E40079E5B4 /* SNSSocialNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNSSocialNetwork.h; sourceTree = "<group>"; };
 		D268950C19BDAE3A0079E5B4 /* SNSSocialNetworkType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNSSocialNetworkType.h; sourceTree = "<group>"; };
-		D268950D19BDB5EC0079E5B4 /* SLVOAuthSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLVOAuthSetup.h; sourceTree = "<group>"; };
-		D268950E19BDB5EC0079E5B4 /* SLVOAuthSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLVOAuthSetup.m; sourceTree = "<group>"; };
-		D268951119BDBA880079E5B4 /* SLVTokenSocialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLVTokenSocialManager.h; sourceTree = "<group>"; };
-		D268951219BDBA880079E5B4 /* SLVTokenSocialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLVTokenSocialManager.m; sourceTree = "<group>"; };
-		D268951419BDD44E0079E5B4 /* SNSSocialNetworkDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNSSocialNetworkDataSource.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +190,8 @@
 		1D6F400019BB062B008F92E8 = {
 			isa = PBXGroup;
 			children = (
+				3026D41019BDFC4F00928EE0 /* SLVTokenSocialManager.m */,
+				3026D40E19BDFC4500928EE0 /* SLVOAuthSetup.m */,
 				1D6F409519BB5680008F92E8 /* Libs */,
 				1D6F401219BB062B008F92E8 /* SocialNetworksSharing */,
 				1D6F403119BB062C008F92E8 /* SocialNetworksSharingTests */,
@@ -445,24 +444,6 @@
 			name = DBManager;
 			sourceTree = "<group>";
 		};
-		D268950619BD8EAA0079E5B4 /* OAuthSetup */ = {
-			isa = PBXGroup;
-			children = (
-				D268950D19BDB5EC0079E5B4 /* SLVOAuthSetup.h */,
-				D268950E19BDB5EC0079E5B4 /* SLVOAuthSetup.m */,
-			);
-			name = OAuthSetup;
-			sourceTree = "<group>";
-		};
-		D268951019BDBA6A0079E5B4 /* TokenSocialManager */ = {
-			isa = PBXGroup;
-			children = (
-				D268951119BDBA880079E5B4 /* SLVTokenSocialManager.h */,
-				D268951219BDBA880079E5B4 /* SLVTokenSocialManager.m */,
-			);
-			name = TokenSocialManager;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -562,6 +543,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3026D41119BDFC4F00928EE0 /* SLVTokenSocialManager.m in Sources */,
+				3026D40F19BDFC4500928EE0 /* SLVOAuthSetup.m in Sources */,
 				1D6F408819BB567B008F92E8 /* AFSecurityPolicy.m in Sources */,
 				1D6F408719BB567B008F92E8 /* AFNetworkReachabilityManager.m in Sources */,
 				1D6F404E19BB1379008F92E8 /* SNSNetworkFactory.m in Sources */,
@@ -580,7 +563,6 @@
 				1D6F40A219BB6746008F92E8 /* SNSVkViewController.m in Sources */,
 				1D6F408F19BB567B008F92E8 /* UIAlertView+AFNetworking.m in Sources */,
 				1D6F409919BB5957008F92E8 /* SNSVkontakte.m in Sources */,
-				D268950F19BDB5EC0079E5B4 /* SLVOAuthSetup.m in Sources */,
 				1D6F408A19BB567B008F92E8 /* AFURLRequestSerialization.m in Sources */,
 				1D6F40B419BDBE28008F92E8 /* SNSVkToken.m in Sources */,
 				D26894FC19BD8E6A0079E5B4 /* SLVDBManager.m in Sources */,
@@ -599,7 +581,6 @@
 				1D6F404619BB0788008F92E8 /* AAShareBubbles.m in Sources */,
 				1D6F409319BB567B008F92E8 /* UIRefreshControl+AFNetworking.m in Sources */,
 				1D6F405B19BB321C008F92E8 /* SNSFacebook.m in Sources */,
-				D268951319BDBA880079E5B4 /* SLVTokenSocialManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

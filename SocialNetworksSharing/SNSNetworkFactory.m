@@ -10,7 +10,7 @@
 #import "SNSNetworksViewController.h"
 #import "SNSFacebook.h"
 #import "SNSTwitter.h"
-#import "SLVLInShareViewController.h"
+#import "SLVLinkedInApi.h"
 
 @implementation SNSNetworkFactory
 

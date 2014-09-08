@@ -60,7 +60,7 @@
 
     NSString* txt;
     UIImage* img;
-    [socialNetwork shareText:txt image:img];
+    [socialNetwork share];
     //[_network share];
     
     //[self.navigationController pushViewController:_network.controller animated:YES];
