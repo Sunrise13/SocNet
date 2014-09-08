@@ -31,100 +31,131 @@
     self.dataSource=dataSource;
 }
 
+
+
+#pragma mark - Ostap__to_mij_mynulyj_metop_share()
 -(void)share
 {
+    
+    NSString * accessToken = @"d176f24a3174431f434ccd8096c7edb4af03ed39a977e4dc57e1b8792e5c2f38ae91122f88719267c0397"; //should be from DB
     self.setOauth=[SLVOAuthSetup new];
     [self.setOauth setupWithServiceType:SNSSocialNetworkTypeVkontakte];
     
-    UIImage *image = [UIImage imageNamed:@"default.jpg"];
+    UIImage *image = [[SNSPostData sharedPostData] getImage];
     
     NSString *user_id = @"13058851";
     
-//    NSString *getWallUploadServer = [NSString stringWithFormat:@"https://api.vk.com/method/photos.getWallUploadServer?owner_id=%@&access_token=%@", user_id, accessToken];
-//    if(!self.user)
-//    {self.oauth=[SLVTokenSocialManager new];
-//        self.oauth.delegate=self;
-//        self.oauth.type=SNSSocialNetworkTypeLinkedIn;
-//        [self.oauth getUser];
-//        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(share) name:@"userData" object:nil];
-//        return;
-//    }
-//    
-//    NSString * urlOatuh=@"?oauth2_access_token=";
-//    NSString * urlPeople=@"https://api.linkedin.com/v1/people/~/shares";
-//    
-//    NSMutableString *url=[[NSMutableString alloc] initWithString:urlPeople];
-//    [url appendString:urlOatuh];
-//    [url appendString:self.user.token];
-//    
-//    NSLog(@"%@", url);
-//    
-//    
-//    NSMutableURLRequest * request=[[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
-//    [request setHTTPMethod:@"POST"];
-//    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    [request addValue:@"json" forHTTPHeaderField:@"x-li-format"];
-//    
-//    //Formatting data for POST request
-//    
-//    //    {
-//    //        "share": {
-//    //            "comment": "Check out the LinkedIn Share API!",
-//    //            "content": {
-//    //                "title": "LinkedIn Developers Documentation On Using the Share API",
-//    //                "description": "Leverage the Share API to maximize engagement on user-generated content on LinkedIn",
-//    //                "submitted-url": "https://developer.linkedin.com/documents/share-api",
-//    //                "submitted-image-url": "https://m3.licdn.com/media/p/3/000/124/1a6/089a29a.png"
-//    //            },
-//    //            "visibility": { "code": "anyone" }
-//    //        }
-//    //    }
-//    
-//    
-//    NSMutableDictionary * root=[[NSMutableDictionary alloc] init];
-//    //NSMutableDictionary * share=[[NSMutableDictionary alloc] init];
-//    NSMutableDictionary * content=[[NSMutableDictionary alloc] init];
-//    NSMutableDictionary * visibility=[[NSMutableDictionary alloc] init];
-//    
-//    //[root setObject:share forKey:@"share"];
-//    
-//    
-//    [root setObject:[_dataSource shareText]  forKey:@"comment"];
-//    //[root setObject:content forKey:@"content"];
-//    // [content setObject:@"Mr. Cat go crazy" forKey:@"title"];
-//    //[content setObject:@"http://google.com.ua" forKey:@"submitted-url"];
-//    [root setObject:visibility forKey:@"visibility"];
-//    
-//    [visibility setObject:@"anyone" forKey:@"code"]; //For now we without content but with visibility
-//    
-//    NSLog(@"%@",root);
-//    
-//    
-//    
-//    NSData * json=[NSJSONSerialization dataWithJSONObject:root options:NSJSONWritingPrettyPrinted error:nil];
-//    
-//    
-//    [request setHTTPBody:json];
-//    NSError *error;
-//    
-//    [NSURLConnection sendAsynchronousRequest:request
-//                                       queue:[NSOperationQueue mainQueue]
-//                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
-//     {
-//         
-//         
-//         NSDictionary * dic=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-//         NSLog(@"%@", dic);
-//         NSLog(@"%@", error);
-//         NSLog(@"%@", dic[@"updateUrl"]);
-//         [self.delegate madeShare:[NSURL URLWithString:dic[@"updateUrl"]]];
-//     }
-//     ];
-//    
+    NSString *getWallUploadServer = [NSString stringWithFormat:@"https://api.vk.com/method/photos.getWallUploadServer?owner_id=%@&access_token=%@", user_id, accessToken];
+    NSDictionary *uploadServer = [self sendRequest:getWallUploadServer];
+    NSString *upload_url = [[uploadServer objectForKey:@"response"] objectForKey:@"upload_url"];
+    
+    //  2
+    NSData *imageData = UIImageJPEGRepresentation(image, 1.0f);
+    NSDictionary *postDictionary = [self sendPOSTRequest:upload_url withImageData:imageData];
+
+    NSString *hash = [postDictionary objectForKey:@"hash"];
+    NSString *photo = [postDictionary objectForKey:@"photo"];
+    NSString *server = [postDictionary objectForKey:@"server"];
+    
+    //  3
+    NSString *saveWallPhoto = [NSString stringWithFormat:@"https://api.vk.com/method/photos.saveWallPhoto?owner_id=%@&access_token=%@&server=%@&photo=%@&hash=%@", user_id, accessToken,server,photo,hash];
+    saveWallPhoto = [saveWallPhoto stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSDictionary *saveWallPhotoDict = [self sendRequest:saveWallPhoto];
+    
+    NSDictionary *photoDict = [[saveWallPhotoDict objectForKey:@"response"] lastObject];
+    NSString *photoId = [photoDict objectForKey:@"id"];
+    
+    //  4
+    
+    
+    NSLog(@"photoID: %@", photoId);
+    
+    NSString *postToWallLink = [NSString stringWithFormat:@"https://api.vk.com/method/wall.post?owner_id=%@&access_token=%@&message=%@&attachment=%@", user_id, accessToken, @"NSString", photoId];
+    
+    NSDictionary *postToWallDict = [self sendRequest:postToWallLink];
+    NSString *errorMsg = [[postToWallDict objectForKey:@"error"] objectForKey:@"error_msg"];
+    if(errorMsg) {
+        [self sendFailedWithError:errorMsg];
+    }
+
 }
 
+- (NSDictionary *) sendRequest:(NSString *)reqURl {
+    NSLog(@"Sending request: %@", reqURl);
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:reqURl]
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                                       timeoutInterval:60.0];
+    
+    
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    
+    id jsonData = [NSJSONSerialization JSONObjectWithData: responseData options:NSJSONReadingAllowFragments error:nil];
+    
+    if([jsonData isKindOfClass:[NSDictionary class]]){
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        dict = (NSMutableDictionary*) jsonData;
+        
+        NSString *errorMsg = [[dict objectForKey:@"error"] objectForKey:@"error_msg"];
+        
+        NSLog(@"Server response: %@ \nError: %@", dict, errorMsg);
+        
+        return dict;
+    }
+    return nil;
+}
 
+- (NSDictionary *) sendPOSTRequest:(NSString *)reqURl withImageData:(NSData *)imageData {
+    NSLog(@"Sending request: %@", reqURl);
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:reqURl]
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                                       timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"POST"];
+    
+    [request addValue:@"8bit" forHTTPHeaderField:@"Content-Transfer-Encoding"];
+    
+    CFUUIDRef uuid = CFUUIDCreate(nil);
+    NSString * uuidString = [[NSString alloc] init];
+    CFRelease(uuid);
+    NSString *stringBoundary = [NSString stringWithFormat:@"0xKhTmLbOuNdArY-%@",uuidString];
+    NSString *endItemBoundary = [NSString stringWithFormat:@"\r\n--%@\r\n",stringBoundary];
+    
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data;  boundary=%@", stringBoundary];
+    
+    [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
+    
+    NSMutableData *body = [NSMutableData data];
+    
+    [body appendData:[[NSString stringWithFormat:@"--%@\r\n",stringBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"Content-Disposition: form-data; name=\"photo\"; filename=\"photo.jpg\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[@"Content-Type: image/jpg\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:imageData];
+    [body appendData:[[NSString stringWithFormat:@"%@",endItemBoundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    [request setHTTPBody:body];
+    
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    
+    id jsonData = [NSJSONSerialization JSONObjectWithData: responseData options:NSJSONReadingAllowFragments error:nil];
+    
+    if([jsonData isKindOfClass:[NSDictionary class]]){
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        dict = (NSMutableDictionary*) jsonData;
+        
+        NSString *errorMsg = [[dict objectForKey:@"error"] objectForKey:@"error_msg"];
+        
+        NSLog(@"Server response: %@ \nError: %@", dict, errorMsg);
+        
+        return dict;
+    }
+    return nil;
+}
 
+- (void) sendFailedWithError:(NSString *)error {
+    NSLog(@"errrOOOOOOOrrrr");
+}
 
 @end
 
