@@ -10,6 +10,7 @@
 #import "SNSNetworksViewController.h"
 #import "SNSFacebook.h"
 #import "SLVLinkedInApi.h"
+#import "SNSGooglePlusViewController.h"
 
 @implementation SNSNetworkFactory
 
@@ -28,6 +29,8 @@
             break;
         case SNSSocialNetworkTypeVkontakte:
             break;
+        case SNSSocialNetworkTypeGooglePlus:
+            return [[SNSGooglePlusViewController alloc] init];
     }
     return nil;
 } 

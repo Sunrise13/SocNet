@@ -55,9 +55,10 @@
     {
         case AAShareBubbleTypeFacebook: type=SNSSocialNetworkTypeFacebook; break;
         case AAShareBubbleTypeLinkedIn: type=SNSSocialNetworkTypeLinkedIn; break;
+        case AAShareBubbleTypeGooglePlus: type=SNSSocialNetworkTypeGooglePlus; break;
     }
     id socialNetwork= [_network getNetwork:type];
-    [socialNetwork settingDataSource:[SNSPostData sharedPostData]];
+    //[socialNetwork settingDataSource:[SNSPostData sharedPostData]];
     [socialNetwork share];
     //[_network share];
     
