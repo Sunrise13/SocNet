@@ -8,6 +8,7 @@
 
 #import "SNSViewController.h"
 #import "SNSNetworksViewController.h"
+#import "SNSPostData.h"
 
 @interface SNSViewController ()
 
@@ -18,6 +19,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [SNSPostData sharedPostData]; //maybe it's not needed
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,6 +64,18 @@
         SNSNetworksViewController * dController = segue.destinationViewController;
         dController.mainController = self;
     }
+    
+    
+    if ((![self.shareText.text isEqual:@""]) && (self.shareImage.image.size.height>1))
+        
+    {
+        [[SNSPostData sharedPostData] setWithText:self.shareText.text];
+    }
+    if ((_shareImage.image.size.height>1)&&(_shareImage.image.size.width>1))
+    {
+        [[SNSPostData sharedPostData] setWithImage:self.shareImage.image];
+    }
+    
 }
 
 @end
