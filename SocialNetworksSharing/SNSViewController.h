@@ -14,4 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *shareText;
 
 
+- (IBAction)cameraPressed:(id)sender;
+
+
 @end

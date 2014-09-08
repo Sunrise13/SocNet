@@ -23,9 +23,17 @@
 {
     [super viewDidLoad];
     [SNSPostData sharedPostData];//maybe it's not needed
-    
+
     _shareText = [[UITextView alloc] init];
     [self.shareText setText:@"Enter your text here"];
+}
+
+
+- (IBAction)cameraPressed:(id)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Uppload the photo" message:nil delegate:self cancelButtonTitle:@"Dissmiss" otherButtonTitles:@"Take the photo",@"Choose existing",nil];
+    alert.alertViewStyle = UIAlertViewStyleDefault;
+    [alert show];
 }
 
 - (void)didReceiveMemoryWarning
