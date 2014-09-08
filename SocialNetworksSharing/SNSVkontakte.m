@@ -22,11 +22,10 @@
 
 }
 
-
-
-
-
-
+-(void) shareText:(NSString *)text image:(UIImage *)image
+{
+    
+}
 
 
 @end

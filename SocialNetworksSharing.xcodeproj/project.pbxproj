@@ -48,6 +48,9 @@
 		1D6F409F19BB5DD7008F92E8 /* SNSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F409E19BB5DD7008F92E8 /* SNSUser.m */; };
 		1D6F40A219BB6746008F92E8 /* SNSVkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F40A119BB6746008F92E8 /* SNSVkViewController.m */; };
 		1D6F40AE19BDB469008F92E8 /* SNSPostData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F40AD19BDB469008F92E8 /* SNSPostData.m */; };
+		1D6F40B119BDBDE0008F92E8 /* NSString+StringBetween.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F40B019BDBDE0008F92E8 /* NSString+StringBetween.m */; };
+		1D6F40B419BDBE28008F92E8 /* SNSVkToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F40B319BDBE28008F92E8 /* SNSVkToken.m */; };
+		1D6F40B719BDC266008F92E8 /* SNSTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F40B619BDC266008F92E8 /* SNSTwitter.m */; };
 		D26894FC19BD8E6A0079E5B4 /* SLVDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D26894F819BD8E6A0079E5B4 /* SLVDBManager.m */; };
 		D26894FD19BD8E6A0079E5B4 /* Users.m in Sources */ = {isa = PBXBuildFile; fileRef = D26894FA19BD8E6A0079E5B4 /* Users.m */; };
 		D26894FE19BD8E6A0079E5B4 /* Model.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = D26894FB19BD8E6A0079E5B4 /* Model.xcdatamodel */; };
@@ -141,6 +144,12 @@
 		1D6F40A119BB6746008F92E8 /* SNSVkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSVkViewController.m; sourceTree = "<group>"; };
 		1D6F40AC19BDB469008F92E8 /* SNSPostData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNSPostData.h; sourceTree = "<group>"; };
 		1D6F40AD19BDB469008F92E8 /* SNSPostData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSPostData.m; sourceTree = "<group>"; };
+		1D6F40AF19BDBDE0008F92E8 /* NSString+StringBetween.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringBetween.h"; sourceTree = "<group>"; };
+		1D6F40B019BDBDE0008F92E8 /* NSString+StringBetween.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringBetween.m"; sourceTree = "<group>"; };
+		1D6F40B219BDBE28008F92E8 /* SNSVkToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNSVkToken.h; sourceTree = "<group>"; };
+		1D6F40B319BDBE28008F92E8 /* SNSVkToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSVkToken.m; sourceTree = "<group>"; };
+		1D6F40B519BDC266008F92E8 /* SNSTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNSTwitter.h; sourceTree = "<group>"; };
+		1D6F40B619BDC266008F92E8 /* SNSTwitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSTwitter.m; sourceTree = "<group>"; };
 		D26894F719BD8E6A0079E5B4 /* SLVDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLVDBManager.h; sourceTree = "<group>"; };
 		D26894F819BD8E6A0079E5B4 /* SLVDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLVDBManager.m; sourceTree = "<group>"; };
 		D26894F919BD8E6A0079E5B4 /* Users.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Users.h; sourceTree = "<group>"; };
@@ -214,8 +223,7 @@
 		1D6F401219BB062B008F92E8 /* SocialNetworksSharing */ = {
 			isa = PBXGroup;
 			children = (
-				1D6F40AC19BDB469008F92E8 /* SNSPostData.h */,
-				1D6F40AD19BDB469008F92E8 /* SNSPostData.m */,
+				1D6F40B819BDC6C8008F92E8 /* Twitter */,
 				D26894F619BD8E320079E5B4 /* DBManager */,
 				1D6F409619BB593C008F92E8 /* Vkontakte */,
 				1D6F405D19BB43BE008F92E8 /* GooglePlus */,
@@ -226,6 +234,8 @@
 				1D6F404A19BB084D008F92E8 /* NetworkBubbles */,
 				1D6F401E19BB062B008F92E8 /* Main.storyboard */,
 				1D6F402419BB062B008F92E8 /* Images.xcassets */,
+				1D6F40AC19BDB469008F92E8 /* SNSPostData.h */,
+				1D6F40AD19BDB469008F92E8 /* SNSPostData.m */,
 				1D6F401319BB062B008F92E8 /* Supporting Files */,
 			);
 			path = SocialNetworksSharing;
@@ -390,6 +400,10 @@
 		1D6F409619BB593C008F92E8 /* Vkontakte */ = {
 			isa = PBXGroup;
 			children = (
+				1D6F40B219BDBE28008F92E8 /* SNSVkToken.h */,
+				1D6F40B319BDBE28008F92E8 /* SNSVkToken.m */,
+				1D6F40AF19BDBDE0008F92E8 /* NSString+StringBetween.h */,
+				1D6F40B019BDBDE0008F92E8 /* NSString+StringBetween.m */,
 				1D6F409719BB5957008F92E8 /* SNSVkontakte.h */,
 				1D6F409819BB5957008F92E8 /* SNSVkontakte.m */,
 				1D6F409A19BB5D4D008F92E8 /* SNSRequestManager.h */,
@@ -400,6 +414,15 @@
 				1D6F40A119BB6746008F92E8 /* SNSVkViewController.m */,
 			);
 			name = Vkontakte;
+			sourceTree = "<group>";
+		};
+		1D6F40B819BDC6C8008F92E8 /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+				1D6F40B519BDC266008F92E8 /* SNSTwitter.h */,
+				1D6F40B619BDC266008F92E8 /* SNSTwitter.m */,
+			);
+			name = Twitter;
 			sourceTree = "<group>";
 		};
 		D26894F519BD8E250079E5B4 /* LinkedInApi */ = {
@@ -554,15 +577,18 @@
 				1D6F408419BB567B008F92E8 /* AFHTTPRequestOperation.m in Sources */,
 				1D6F408619BB567B008F92E8 /* AFHTTPSessionManager.m in Sources */,
 				D26894FE19BD8E6A0079E5B4 /* Model.xcdatamodel in Sources */,
+				1D6F40B719BDC266008F92E8 /* SNSTwitter.m in Sources */,
 				1D6F40A219BB6746008F92E8 /* SNSVkViewController.m in Sources */,
 				1D6F408F19BB567B008F92E8 /* UIAlertView+AFNetworking.m in Sources */,
 				1D6F409919BB5957008F92E8 /* SNSVkontakte.m in Sources */,
 				D268950919BD8EC40079E5B4 /* SLVOAuthSetup.m in Sources */,
 				1D6F408A19BB567B008F92E8 /* AFURLRequestSerialization.m in Sources */,
+				1D6F40B419BDBE28008F92E8 /* SNSVkToken.m in Sources */,
 				D26894FC19BD8E6A0079E5B4 /* SLVDBManager.m in Sources */,
 				1D6F401919BB062B008F92E8 /* main.m in Sources */,
 				1D6F408C19BB567B008F92E8 /* AFURLSessionManager.m in Sources */,
 				1D6F402319BB062B008F92E8 /* SNSViewController.m in Sources */,
+				1D6F40B119BDBDE0008F92E8 /* NSString+StringBetween.m in Sources */,
 				1D6F408519BB567B008F92E8 /* AFHTTPRequestOperationManager.m in Sources */,
 				1D6F409C19BB5D4D008F92E8 /* SNSRequestManager.m in Sources */,
 				1D6F409219BB567B008F92E8 /* UIProgressView+AFNetworking.m in Sources */,

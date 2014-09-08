@@ -21,6 +21,16 @@
     return postDataManager;
 }
 
+-(instancetype)init
+{
+    self=[super init];
+    if(self)
+    {
+        
+    }
+    return self;
+}
+
 -(void) setWithText:(NSString*) text
 {
     if(self)
@@ -37,14 +47,14 @@
     }
 }
 
--(instancetype)init
+-(UIImage*) getImage
 {
-    self=[super init];
-    if(self)
-    {
+    return _postImage;
+}
 
-    }
-    return self;
+-(NSString*) getText
+{
+    return _postText;
 }
 
 @end

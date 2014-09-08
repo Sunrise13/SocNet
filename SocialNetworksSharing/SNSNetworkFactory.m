@@ -9,6 +9,7 @@
 #import "SNSNetworkFactory.h"
 #import "SNSNetworksViewController.h"
 #import "SNSFacebook.h"
+#import "SNSTwitter.h"
 #import "SLVLInShareViewController.h"
 
 @implementation SNSNetworkFactory
@@ -25,6 +26,7 @@
             return [[SLVLInShareViewController alloc] init];
             break;
         case SNSSocialNetworkTypeTwitter:
+            return [[SNSTwitter alloc]init];
             break;
         case SNSSocialNetworkTypeVkontakte:
             break;

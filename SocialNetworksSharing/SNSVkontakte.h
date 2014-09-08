@@ -7,12 +7,12 @@
 //
 
 #import "SNSNetworkFactory.h"
+#import "SNSSocialNetwork.h"
 
 
 
 
-
-@interface SNSVkontakte : SNSNetworkFactory
+@interface SNSVkontakte : NSObject <SNSSocialNetwork>
 
 
 -(void) share;

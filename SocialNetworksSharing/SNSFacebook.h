@@ -7,9 +7,10 @@
 //
 
 #import "SNSSocialNetwork.h"
+#import "SNSViewController.h"
 #import "SNSNetworksViewController.h"
 
-@interface SNSFacebook : SNSNetworkFactory <SNSSocialNetwork>
+@interface SNSFacebook : NSObject <SNSSocialNetwork>
 
 
 
