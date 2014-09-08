@@ -76,7 +76,7 @@
     }
     else
     {
-        [[SNSPostData sharedPostData] setWithImage:[UIImage imageNamed:@"noimage32.jpg"]];
+        [[SNSPostData sharedPostData] setWithImage:[UIImage imageNamed:@"default.jpg"]];
     }
     
 }
