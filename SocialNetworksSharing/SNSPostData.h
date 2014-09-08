@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "SNSViewController.h"
+#import "SNSSocialNetworkDataSource.h"
 
-@interface SNSPostData : NSObject
+
+@interface SNSPostData : NSObject <SNSSocialNetworkDataSource>
 
 @property (nonatomic, copy) NSString * postText;
 @property (nonatomic, strong) UIImage * postImage;
@@ -19,5 +21,8 @@
 -(void) setWithImage: (UIImage*) image;
 -(NSString*) getText;
 -(UIImage*) getImage;
+
+
+
 
 @end

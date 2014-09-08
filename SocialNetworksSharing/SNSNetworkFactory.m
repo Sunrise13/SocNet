@@ -23,7 +23,7 @@
             return [[SNSFacebook alloc]  init];
             break;
         case SNSSocialNetworkTypeLinkedIn:
-            return [[SLVLInShareViewController alloc] init];
+            return [[SLVLinkedInApi alloc] init];
             break;
         case SNSSocialNetworkTypeTwitter:
             return [[SNSTwitter alloc]init];

@@ -50,15 +50,19 @@
      ];
     return nil;
 }
+-(void)settingDataSource:(id<SNSSocialNetworkDataSource>)dataSource
+{
+    self.dataSource=dataSource;
+}
 
--(void)makeShare
+-(void)share
 {
     if(!self.user)
-    {self.oauth=[SLVOAuthSetup new];
+    {self.oauth=[SLVTokenSocialManager new];
         self.oauth.delegate=self;
-        
+        self.oauth.type=SNSSocialNetworkTypeLinkedIn;
        [self.oauth getUser];
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(makeShare) name:@"userData" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(share) name:@"userData" object:nil];
         return;
     }
   
@@ -101,7 +105,7 @@
     //[root setObject:share forKey:@"share"];
     
     
-    [root setObject:@"Lv-" forKey:@"comment"];
+    [root setObject:[_dataSource shareText]  forKey:@"comment"];
     //[root setObject:content forKey:@"content"];
    // [content setObject:@"Mr. Cat go crazy" forKey:@"title"];
     //[content setObject:@"http://google.com.ua" forKey:@"submitted-url"];
@@ -129,7 +133,6 @@
          NSLog(@"%@", dic);
          NSLog(@"%@", error);
          NSLog(@"%@", dic[@"updateUrl"]);
-         //self.response=dic;
          [self.delegate madeShare:[NSURL URLWithString:dic[@"updateUrl"]]];
      }
      ];

@@ -56,5 +56,18 @@
 {
     return _postText;
 }
+-(NSString*)shareText
+{
+    if(self)
+        return _postText;
+    return nil;
+}
+
+-(UIImage *)shareImage
+{
+    if (self)
+        return _postImage;
+    return nil;
+}
 
 @end
