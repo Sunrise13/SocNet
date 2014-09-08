@@ -12,6 +12,8 @@
 #import "SNSTwitter.h"
 #import "SLVLinkedInApi.h"
 
+#import "SNSVkontakteApi.h"
+
 @implementation SNSNetworkFactory
 
 -(id) getNetwork:(SNSSocialNetworkType) type
@@ -29,6 +31,7 @@
             return [[SNSTwitter alloc]init];
             break;
         case SNSSocialNetworkTypeVkontakte:
+            return [[SNSVkontakteApi alloc]init];
             break;
     }
     return nil;
