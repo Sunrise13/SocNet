@@ -55,6 +55,7 @@
         case AAShareBubbleTypeFacebook: type=SNSSocialNetworkTypeFacebook; break;
         case AAShareBubbleTypeLinkedIn: type=SNSSocialNetworkTypeLinkedIn; break;
         case AAShareBubbleTypeTwitter: type=SNSSocialNetworkTypeTwitter; break;
+        case AAShareBubbleTypeVk: type=SNSSocialNetworkTypeVkontakte;  break;
     }
     id socialNetwork= [_network getNetwork:type];
 

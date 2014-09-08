@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D20A61B19BE03E5000EC3A5 /* default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D20A61A19BE03E5000EC3A5 /* default.jpg */; };
+		1D20A61E19BE07F1000EC3A5 /* SNSVkontakteApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D20A61D19BE07F1000EC3A5 /* SNSVkontakteApi.m */; };
 		1D6F400D19BB062B008F92E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6F400C19BB062B008F92E8 /* Foundation.framework */; };
 		1D6F400F19BB062B008F92E8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6F400E19BB062B008F92E8 /* CoreGraphics.framework */; };
 		1D6F401119BB062B008F92E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6F401019BB062B008F92E8 /* UIKit.framework */; };
@@ -72,6 +73,8 @@
 
 /* Begin PBXFileReference section */
 		1D20A61A19BE03E5000EC3A5 /* default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default.jpg; sourceTree = "<group>"; };
+		1D20A61C19BE07F1000EC3A5 /* SNSVkontakteApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNSVkontakteApi.h; sourceTree = "<group>"; };
+		1D20A61D19BE07F1000EC3A5 /* SNSVkontakteApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSVkontakteApi.m; sourceTree = "<group>"; };
 		1D6F400919BB062B008F92E8 /* SocialNetworksSharing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetworksSharing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6F400C19BB062B008F92E8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6F400E19BB062B008F92E8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -413,6 +416,8 @@
 				1D6F409E19BB5DD7008F92E8 /* SNSUser.m */,
 				1D6F40A019BB6746008F92E8 /* SNSVkViewController.h */,
 				1D6F40A119BB6746008F92E8 /* SNSVkViewController.m */,
+				1D20A61C19BE07F1000EC3A5 /* SNSVkontakteApi.h */,
+				1D20A61D19BE07F1000EC3A5 /* SNSVkontakteApi.m */,
 			);
 			name = Vkontakte;
 			sourceTree = "<group>";
@@ -578,6 +583,7 @@
 				1D6F409C19BB5D4D008F92E8 /* SNSRequestManager.m in Sources */,
 				1D6F409219BB567B008F92E8 /* UIProgressView+AFNetworking.m in Sources */,
 				1D6F404919BB081C008F92E8 /* SNSNetworksViewController.m in Sources */,
+				1D20A61E19BE07F1000EC3A5 /* SNSVkontakteApi.m in Sources */,
 				1D6F409019BB567B008F92E8 /* UIButton+AFNetworking.m in Sources */,
 				1D6F40AE19BDB469008F92E8 /* SNSPostData.m in Sources */,
 				1D6F408B19BB567B008F92E8 /* AFURLResponseSerialization.m in Sources */,
