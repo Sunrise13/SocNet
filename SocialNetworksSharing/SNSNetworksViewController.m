@@ -43,6 +43,10 @@
 
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+}
 -(void)aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:(AAShareBubbleType)bubbleType
 {
     SNSSocialNetworkType type;

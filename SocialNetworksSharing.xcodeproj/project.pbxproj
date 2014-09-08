@@ -51,8 +51,8 @@
 		D26894FD19BD8E6A0079E5B4 /* Users.m in Sources */ = {isa = PBXBuildFile; fileRef = D26894FA19BD8E6A0079E5B4 /* Users.m */; };
 		D26894FE19BD8E6A0079E5B4 /* Model.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = D26894FB19BD8E6A0079E5B4 /* Model.xcdatamodel */; };
 		D268950119BD8E870079E5B4 /* SLVLinkedInApi.m in Sources */ = {isa = PBXBuildFile; fileRef = D268950019BD8E870079E5B4 /* SLVLinkedInApi.m */; };
-		D268950519BD8EA10079E5B4 /* SLVLInShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D268950419BD8EA10079E5B4 /* SLVLInShareViewController.m */; };
-		D268950919BD8EC40079E5B4 /* SLVOAuthSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = D268950819BD8EC40079E5B4 /* SLVOAuthSetup.m */; };
+		D268950F19BDB5EC0079E5B4 /* SLVOAuthSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = D268950E19BDB5EC0079E5B4 /* SLVOAuthSetup.m */; };
+		D268951319BDBA880079E5B4 /* SLVTokenSocialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D268951219BDBA880079E5B4 /* SLVTokenSocialManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,12 +145,12 @@
 		D26894FB19BD8E6A0079E5B4 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		D26894FF19BD8E870079E5B4 /* SLVLinkedInApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLVLinkedInApi.h; sourceTree = "<group>"; };
 		D268950019BD8E870079E5B4 /* SLVLinkedInApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLVLinkedInApi.m; sourceTree = "<group>"; };
-		D268950319BD8EA10079E5B4 /* SLVLInShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLVLInShareViewController.h; sourceTree = "<group>"; };
-		D268950419BD8EA10079E5B4 /* SLVLInShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLVLInShareViewController.m; sourceTree = "<group>"; };
-		D268950719BD8EC40079E5B4 /* SLVOAuthSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLVOAuthSetup.h; sourceTree = "<group>"; };
-		D268950819BD8EC40079E5B4 /* SLVOAuthSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLVOAuthSetup.m; sourceTree = "<group>"; };
 		D268950B19BDA8E40079E5B4 /* SNSSocialNetwork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNSSocialNetwork.h; sourceTree = "<group>"; };
 		D268950C19BDAE3A0079E5B4 /* SNSSocialNetworkType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNSSocialNetworkType.h; sourceTree = "<group>"; };
+		D268950D19BDB5EC0079E5B4 /* SLVOAuthSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLVOAuthSetup.h; sourceTree = "<group>"; };
+		D268950E19BDB5EC0079E5B4 /* SLVOAuthSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLVOAuthSetup.m; sourceTree = "<group>"; };
+		D268951119BDBA880079E5B4 /* SLVTokenSocialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLVTokenSocialManager.h; sourceTree = "<group>"; };
+		D268951219BDBA880079E5B4 /* SLVTokenSocialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLVTokenSocialManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +211,8 @@
 		1D6F401219BB062B008F92E8 /* SocialNetworksSharing */ = {
 			isa = PBXGroup;
 			children = (
+				D268951019BDBA6A0079E5B4 /* TokenSocialManager */,
+				D268950619BD8EAA0079E5B4 /* OAuthSetup */,
 				D26894F619BD8E320079E5B4 /* DBManager */,
 				1D6F409619BB593C008F92E8 /* Vkontakte */,
 				1D6F405D19BB43BE008F92E8 /* GooglePlus */,
@@ -299,7 +301,6 @@
 		1D6F405419BB207C008F92E8 /* LinkedIn */ = {
 			isa = PBXGroup;
 			children = (
-				D268950619BD8EAA0079E5B4 /* OAuthSetup */,
 				D268950219BD8E8F0079E5B4 /* Share */,
 				D26894F519BD8E250079E5B4 /* LinkedInApi */,
 			);
@@ -421,8 +422,6 @@
 		D268950219BD8E8F0079E5B4 /* Share */ = {
 			isa = PBXGroup;
 			children = (
-				D268950319BD8EA10079E5B4 /* SLVLInShareViewController.h */,
-				D268950419BD8EA10079E5B4 /* SLVLInShareViewController.m */,
 			);
 			name = Share;
 			sourceTree = "<group>";
@@ -430,10 +429,19 @@
 		D268950619BD8EAA0079E5B4 /* OAuthSetup */ = {
 			isa = PBXGroup;
 			children = (
-				D268950719BD8EC40079E5B4 /* SLVOAuthSetup.h */,
-				D268950819BD8EC40079E5B4 /* SLVOAuthSetup.m */,
+				D268950D19BDB5EC0079E5B4 /* SLVOAuthSetup.h */,
+				D268950E19BDB5EC0079E5B4 /* SLVOAuthSetup.m */,
 			);
 			name = OAuthSetup;
+			sourceTree = "<group>";
+		};
+		D268951019BDBA6A0079E5B4 /* TokenSocialManager */ = {
+			isa = PBXGroup;
+			children = (
+				D268951119BDBA880079E5B4 /* SLVTokenSocialManager.h */,
+				D268951219BDBA880079E5B4 /* SLVTokenSocialManager.m */,
+			);
+			name = TokenSocialManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -552,7 +560,7 @@
 				1D6F40A219BB6746008F92E8 /* SNSVkViewController.m in Sources */,
 				1D6F408F19BB567B008F92E8 /* UIAlertView+AFNetworking.m in Sources */,
 				1D6F409919BB5957008F92E8 /* SNSVkontakte.m in Sources */,
-				D268950919BD8EC40079E5B4 /* SLVOAuthSetup.m in Sources */,
+				D268950F19BDB5EC0079E5B4 /* SLVOAuthSetup.m in Sources */,
 				1D6F408A19BB567B008F92E8 /* AFURLRequestSerialization.m in Sources */,
 				D26894FC19BD8E6A0079E5B4 /* SLVDBManager.m in Sources */,
 				1D6F401919BB062B008F92E8 /* main.m in Sources */,
@@ -563,12 +571,12 @@
 				1D6F409219BB567B008F92E8 /* UIProgressView+AFNetworking.m in Sources */,
 				1D6F404919BB081C008F92E8 /* SNSNetworksViewController.m in Sources */,
 				1D6F409019BB567B008F92E8 /* UIButton+AFNetworking.m in Sources */,
-				D268950519BD8EA10079E5B4 /* SLVLInShareViewController.m in Sources */,
 				1D6F408B19BB567B008F92E8 /* AFURLResponseSerialization.m in Sources */,
 				1D6F401D19BB062B008F92E8 /* SNSAppDelegate.m in Sources */,
 				1D6F404619BB0788008F92E8 /* AAShareBubbles.m in Sources */,
 				1D6F409319BB567B008F92E8 /* UIRefreshControl+AFNetworking.m in Sources */,
 				1D6F405B19BB321C008F92E8 /* SNSFacebook.m in Sources */,
+				D268951319BDBA880079E5B4 /* SLVTokenSocialManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

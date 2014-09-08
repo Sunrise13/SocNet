@@ -10,6 +10,8 @@
 //#import "SLVViewController.h"
 #import "Users.h"
 #import "SLVOAuthSetup.h"
+#import "SLVTokenSocialManager.h"
+#import "SNSSocialNetwork.h"
 
 @protocol SLVLinkedInApiDelegate <NSObject>
 
@@ -19,13 +21,13 @@
 
 @end
 
-@interface SLVLinkedInApi : NSObject <SLVOAuthSetupDelegate>
+@interface SLVLinkedInApi : NSObject <SLVTokenSocialManagerDelegate, SNSSocialNetwork>
 
 
 @property(nonatomic) Users * user;
 @property(nonatomic) id<SLVLinkedInApiDelegate> delegate;
 @property(nonatomic) __block NSDictionary * response;
-@property(nonatomic) SLVOAuthSetup *oauth;
+@property(nonatomic) SLVTokenSocialManager *oauth;
 -(NSDictionary *)getProfile;
 -(void)makeShare;
 @end

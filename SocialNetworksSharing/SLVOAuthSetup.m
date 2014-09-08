@@ -13,82 +13,64 @@ static  NSString * kLinkedInApiKey=@"772ojbop21zpbj";
 static  NSString * kLinkedInSecretKey=@"SEFTnXX310DnJtE6";
 
 
+static  NSString * kFacebookApiKey=@"1460000980941762";
+static  NSString * kFacebookSecretKey=@"7e349e1a9a5ea5b520d69c9d01a1e455";
+
+//static  NSString * kOdnoklassnikiAppId = @"1099234816";
+//static  NSString * kOdnoklassnikiApiKey = @"CBAPPFICEBABABABA";
+//static  NSString * kOdnoklassnikiSecretKey = @"790E117F49C34E0674AF5924";
+
+static  NSString * kOdnoklassnikiAppId = @"1099077376";
+static  NSString * kOdnoklassnikiApiKey = @"CBAIJDICEBABABABA";
+static  NSString * kOdnoklassnikiSecretKey  = @"5DB622C86B3A9B09648A47F3";
+
 
 @interface SLVOAuthSetup() <UIWebViewDelegate>
 
 @property (nonatomic, strong) UIWebView * webView;
+@property (nonatomic) SNSSocialNetworkType serviceType;
 
 @end
 
 @implementation SLVOAuthSetup
 
--(instancetype)init
+-(void)setupWithServiceType:(SNSSocialNetworkType)serviceType
 {
-    self=[super init];
-    //_controller=controller;
-//    NSFetchRequest *request=[[NSFetchRequest alloc] initWithEntityName:@"Users"];
-//    NSPredicate *pred=[NSPredicate predicateWithFormat:@"serviceType==[c]\"LinkedIn\""]; //serviceType
-//    [request setPredicate:pred];
-//    NSArray *service=[[[SLVDBManager sharedManager] context] executeFetchRequest:request error:nil];
-//    if([service count]==0)
-//    {
-//        [self setupLinkedIn];
-//        //[self getUser];
-//    }
-
-    return self;
-    
-}
--(void)viewDidLoad
-{
-    
-    NSLog(@"OAuth loaded");
-}
-
--(void)viewDidDisappear:(BOOL)animated
-{
-    NSLog(@"OAuth disapper");
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    NSLog(@"OAuth appear");
-}
-
--(void)setupLinkedIn
-{
+    self.serviceType=serviceType;
     [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:self animated:YES completion:nil];
     
-    if(self.webView==nil)
-        NSLog(@"NIIIIILLLL");
-    CGRect web=CGRectMake(self.controller.view.bounds.origin.x, self.controller.view.bounds.origin.y+150, self.controller.view.bounds.size.width+700, self.controller.view.bounds.size.height+700);
+    CGRect web=CGRectMake(0, 0, 700, 700);
     self.webView=[[UIWebView alloc] initWithFrame:web];
     self.webView.delegate=self;
-    NSLog(@"%@",self.webView.delegate);
     self.webView.scalesPageToFit=YES;
     [self.view addSubview:self.webView];
-    NSLog(@"%@ thistiti",self.navigationController);
-    //[self presentViewController:self animated:YES completion:nil];
-   // [self.navigationController pushViewController:self animated:YES];
-   
     
-    //NSLog(@"%@",navigation);
-    //[navigation pushViewController:self animated:YES];
+    NSMutableString *urlAbsolutePath;
+    NSURLRequest *request;
     
-    NSMutableString *path=[[NSMutableString alloc] initWithString:@"https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id="];
-    [path appendString:kLinkedInApiKey];
-    [path appendString:@"&state="];
     
-    NSDate *data=[NSDate date];
-    NSTimeInterval interval=[data timeIntervalSince1970];
-    NSNumber *intervalObj=[NSNumber numberWithDouble:interval];
-    [path appendString:[intervalObj stringValue]];
     
-    [path appendString:@"&redirect_uri=http://example.com"];
-    
-    NSURLRequest *request=[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:path]];
-    [self.webView loadRequest:request];
+    switch (serviceType)
+    {
+        case SNSSocialNetworkTypeLinkedIn:
+        {
+            urlAbsolutePath=[[NSMutableString alloc] initWithString:@"https://www.linkedin.com/uas/oauth2/authorization?response_type=code&client_id="];
+            [urlAbsolutePath appendString:kLinkedInApiKey];
+            [urlAbsolutePath appendString:@"&state="];
+            
+            NSDate *data=[NSDate date];
+            NSTimeInterval currentTimestamp=[data timeIntervalSince1970];
+            NSNumber *timestampObj=[NSNumber numberWithDouble:currentTimestamp];
+            [urlAbsolutePath appendString:[timestampObj stringValue]];
+            [urlAbsolutePath appendString:@"&redirect_uri=http://example.com"];
+            request=[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlAbsolutePath]];
+            break;
+        }
 
+    }
+    
+     [self.webView loadRequest:request];
+    
 }
 
 #pragma mark - WebViewDelegate
@@ -96,11 +78,18 @@ static  NSString * kLinkedInSecretKey=@"SEFTnXX310DnJtE6";
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSString *url=request.URL.absoluteString;
-    
+    NSLog(@"%@\n", url);
     
     if([url rangeOfString:@"http://example.com"].location!=NSNotFound)
     {
-        NSInteger loc=[url rangeOfString:@"code="].location;
+        NSInteger loc=NSNotFound;
+        switch (self.serviceType)
+        {
+            case SNSSocialNetworkTypeLinkedIn:
+                loc=[url rangeOfString:@"code="].location;
+            break;
+
+        }
         if(loc!=NSNotFound)
         {
             NSString * tempToken=[self getTempTokenFromString:url];
@@ -117,80 +106,85 @@ static  NSString * kLinkedInSecretKey=@"SEFTnXX310DnJtE6";
 
 -(NSString *)getTempTokenFromString:(NSString *)path
 {
-    NSInteger loc=[path rangeOfString:@"code="].location;
-    if(loc!=NSNotFound)
+    NSInteger locationBegin;
+    NSInteger locationEnd;
+    switch(self.serviceType)
     {
-        NSInteger loc2=[path rangeOfString:@"&state="].location;
-        NSRange range=NSMakeRange(loc+5, loc2-loc-5);
-        NSString *temp_token=[path substringWithRange:range];
-        NSLog(@"%@", temp_token);
-        return temp_token;
+            case SNSSocialNetworkTypeLinkedIn:
+            locationBegin=[path rangeOfString:@"code="].location+5;
+            locationEnd=[path rangeOfString:@"&state="].location;
+            break;
+
+            
     }
-    return @"NO TEMP TOKEN";
     
+        NSRange range=NSMakeRange(locationBegin, locationEnd-locationBegin);
+        NSString *tempToken=[path substringWithRange:range];
+
+        return tempToken;
 }
 
--(NSString *)getToken:(NSString *)tempToken
+-(void)getToken:(NSString *)tempToken
 {
-    NSMutableString * path=[[NSMutableString alloc] initWithString:@"https://www.linkedin.com/uas/oauth2/accessToken?grant_type=authorization_code&code="];
-    [path appendString:tempToken];
-    [path appendString:@"&redirect_uri=http://example.com"];
-    [path appendString:@"&client_id="];
-    [path appendString:kLinkedInApiKey];
-    [path appendString:@"&client_secret="];
-    [path appendString:kLinkedInSecretKey];
-    NSLog(@"%@", path);
-    NSURL * url=[NSURL URLWithString:path];
+    NSMutableString * absolutePath;
+    NSURL * urlAbsolutePath;
+    NSMutableURLRequest * request;
     
-    NSMutableURLRequest * request=[[NSMutableURLRequest alloc] initWithURL:url];
+    switch (self.serviceType)
+    {
+        case SNSSocialNetworkTypeLinkedIn:
+        {
+            absolutePath=[[NSMutableString alloc] initWithString:@"https://www.linkedin.com/uas/oauth2/accessToken?grant_type=authorization_code&code="];
+            [absolutePath appendString:tempToken];
+            [absolutePath appendString:@"&redirect_uri=http://example.com"];
+            [absolutePath appendString:@"&client_id="];
+            [absolutePath appendString:kLinkedInApiKey];
+            [absolutePath appendString:@"&client_secret="];
+            [absolutePath appendString:kLinkedInSecretKey];
+        }
+            break;
+            
+    }
+    
+
+    urlAbsolutePath=[NSURL URLWithString:absolutePath];
+    
+   request=[[NSMutableURLRequest alloc] initWithURL:urlAbsolutePath];
     [request setHTTPMethod:@"POST"];
     
 
-    //[NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-    
     [NSURLConnection sendAsynchronousRequest:request
                                       queue:[NSOperationQueue mainQueue]
                             completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
      {
 
          NSDictionary * dic=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-         NSString * accessToken=dic[@"access_token"];
-         Users * user=[NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:[[SLVDBManager sharedManager] context]];
-         user.serviceType=@"LinkedIn";
-         user.token=accessToken;
+         
+         Users *user;
+         NSString *accessToken;
+         switch (self.serviceType)
+         {
+             case SNSSocialNetworkTypeLinkedIn:
+             {
+                 accessToken=dic[@"access_token"];
+                 user=[NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:[[SLVDBManager sharedManager] context]];
+                 user.serviceType=@"LinkedIn";
+                 user.token=accessToken;
+             }
+                 break;
+                 
+         }
+        
          [self.delegate userData:user];
          [self.webView removeFromSuperview];
          [[[UIApplication sharedApplication] keyWindow].rootViewController dismissViewControllerAnimated:YES completion:nil];
 
      }
      ];
-
-
-
-    
-    return [url absoluteString];
     
 }
 
--(void)getUser
-{
-    NSFetchRequest *request=[[NSFetchRequest alloc] initWithEntityName:@"Users"];
-    NSPredicate *pred=[NSPredicate predicateWithFormat:@"serviceType==[c]\"LinkedIn\""]; //serviceType
-    [request setPredicate:pred];
-    NSArray *service=[[[SLVDBManager sharedManager] context] executeFetchRequest:request error:nil];
-    if([service count]==0)
-    {
-        NSLog(@"No data");
-        [self setupLinkedIn];
 
-    }
-    else
-    {
-        [self.delegate userData:service[0]];
-    }
-
- 
-}
 
 
 
