@@ -16,16 +16,9 @@ static  NSString * kLinkedInSecretKey=@"SEFTnXX310DnJtE6";
 static  NSString * kFacebookApiKey=@"1460000980941762";
 static  NSString * kFacebookSecretKey=@"7e349e1a9a5ea5b520d69c9d01a1e455";
 
-//static  NSString * kOdnoklassnikiAppId = @"1099234816";
-//static  NSString * kOdnoklassnikiApiKey = @"CBAPPFICEBABABABA";
-//static  NSString * kOdnoklassnikiSecretKey = @"790E117F49C34E0674AF5924";
-
-static  NSString * kOdnoklassnikiAppId = @"1099077376";
-static  NSString * kOdnoklassnikiApiKey = @"CBAIJDICEBABABABA";
-static  NSString * kOdnoklassnikiSecretKey  = @"5DB622C86B3A9B09648A47F3";
-
 
 @interface SLVOAuthSetup() <UIWebViewDelegate>
+
 
 @property (nonatomic, strong) UIWebView * webView;
 @property (nonatomic) SNSSocialNetworkType serviceType;
@@ -33,17 +26,42 @@ static  NSString * kOdnoklassnikiSecretKey  = @"5DB622C86B3A9B09648A47F3";
 @end
 
 @implementation SLVOAuthSetup
+CGRect rect;
+
+- (void) viewWillLayoutSubviews
+{
+    if(UIInterfaceOrientationIsLandscape(self.interfaceOrientation))
+    {
+        rect = CGRectMake(0, 0, 570, 320);
+    }
+    else
+    {
+        rect = CGRectMake(0, 0, 320, 600);
+    }
+    [self ShowWebView];
+}
+
+
+
+- (void) ShowWebView
+{
+    [self.webView setFrame:rect];
+    self.webView.delegate=self;
+    self.webView.scalesPageToFit=YES;
+    [self.view addSubview:self.webView];
+    
+}
+
 
 -(void)setupWithServiceType:(SNSSocialNetworkType)serviceType
 {
     self.serviceType=serviceType;
     [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:self animated:YES completion:nil];
     
-    CGRect web=CGRectMake(0, 0, 700, 700);
-    self.webView=[[UIWebView alloc] initWithFrame:web];
-    self.webView.delegate=self;
-    self.webView.scalesPageToFit=YES;
-    [self.view addSubview:self.webView];
+    self.webView=[[UIWebView alloc] init];
+    
+    [self viewDidLayoutSubviews];
+    [self ShowWebView];
     
     NSMutableString *urlAbsolutePath;
     NSURLRequest *request;

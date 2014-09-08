@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SNSViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate,UITextFieldDelegate>
+@interface SNSViewController : UIViewController <UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIAlertViewDelegate,UITextFieldDelegate, UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *shareImage;
 @property (weak, nonatomic) IBOutlet UITextView *shareText;
+
 
 @end

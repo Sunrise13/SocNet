@@ -12,14 +12,20 @@
 
 @interface SNSViewController ()
 
+
 @end
 
 @implementation SNSViewController
 
+//Enter your text here
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [SNSPostData sharedPostData]; //maybe it's not needed
+    [SNSPostData sharedPostData];//maybe it's not needed
+    
+    _shareText = [[UITextView alloc] init];
+    [self.shareText setText:@"Enter your text here"];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,6 +47,7 @@
 }
 
 
+
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
@@ -48,12 +55,6 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
     
 }
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [_shareText resignFirstResponder];
-}
-
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
