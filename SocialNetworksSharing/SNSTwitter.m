@@ -23,10 +23,10 @@
                                                  composeViewControllerForServiceType:SLServiceTypeTwitter];
         
         NSString* txt = [[SNSPostData sharedPostData] getText];
-      //  UIImage* img = [[SNSPostData sharedPostData] getImage];
+        UIImage* img = [[SNSPostData sharedPostData] getImage];
         
         [slcontroller setInitialText: txt];
-    //    [slcontroller addImage: img];
+        [slcontroller addImage: img];
         
         
         [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:slcontroller animated:YES completion:nil];

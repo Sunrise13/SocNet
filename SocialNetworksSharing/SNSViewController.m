@@ -74,6 +74,10 @@
     {
         [[SNSPostData sharedPostData] setWithImage:self.shareImage.image];
     }
+    else
+    {
+        [[SNSPostData sharedPostData] setWithImage:[UIImage imageNamed:@"noimage32.jpg"]];
+    }
     
 }
 
