@@ -11,6 +11,7 @@
 #import "AAShareBubbles.h"
 #import "SNSNetworkFactory.h"
 #import "SNSFacebook.h"
+#import "SNSPostData.h"
 
 
 @interface SNSNetworksViewController() <AAShareBubblesDelegate>
@@ -56,7 +57,8 @@
         case AAShareBubbleTypeLinkedIn: type=SNSSocialNetworkTypeLinkedIn; break;
     }
     id socialNetwork= [_network getNetwork:type];
-    [socialNetwork shareText:nil image:nil];
+    [socialNetwork settingDataSource:[SNSPostData sharedPostData]];
+    [socialNetwork share];
     //[_network share];
     
     //[self.navigationController pushViewController:_network.controller animated:YES];

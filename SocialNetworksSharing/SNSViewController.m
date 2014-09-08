@@ -66,7 +66,7 @@
     }
     
     
-    if ((![self.shareText.text isEqual:@""]) && (self.shareImage.image.size.height>1))
+    if ((![self.shareText.text isEqual:@""]))
         
     {
         [[SNSPostData sharedPostData] setWithText:self.shareText.text];

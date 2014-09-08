@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol SNSSocialNetworkDataSource;
 @protocol SNSSocialNetwork <NSObject>
 
 @optional
--(void)shareText:(NSString*)text image:(UIImage *)image;
+-(void)share;
+-(void)settingDataSource:(id<SNSSocialNetworkDataSource>)data;
 @end

@@ -12,6 +12,7 @@
 #import "SLVOAuthSetup.h"
 #import "SLVTokenSocialManager.h"
 #import "SNSSocialNetwork.h"
+#import "SNSPostData.h"
 
 @protocol SLVLinkedInApiDelegate <NSObject>
 
@@ -26,8 +27,9 @@
 
 @property(nonatomic) Users * user;
 @property(nonatomic) id<SLVLinkedInApiDelegate> delegate;
+@property(nonatomic) id<SNSSocialNetworkDataSource> dataSource;
 @property(nonatomic) __block NSDictionary * response;
 @property(nonatomic) SLVTokenSocialManager *oauth;
 -(NSDictionary *)getProfile;
--(void)makeShare;
+//-(void)makeShare;
 @end
