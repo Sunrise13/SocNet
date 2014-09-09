@@ -33,7 +33,7 @@
 
 
 
-#pragma mark - Ostap__to_mij_mynulyj_metop_share()
+
 -(void)share
 {
     
@@ -70,8 +70,8 @@
     
     
     NSLog(@"photoID: %@", photoId);
-    
-    NSString *postToWallLink = [NSString stringWithFormat:@"https://api.vk.com/method/wall.post?owner_id=%@&access_token=%@&message=%@&attachment=%@", user_id, accessToken, @"NSString", photoId];
+    NSString * posttext = [[SNSPostData sharedPostData] postText];
+    NSString *postToWallLink = [NSString stringWithFormat:@"https://api.vk.com/method/wall.post?owner_id=%@&access_token=%@&message=%@&attachment=%@", user_id, accessToken, posttext, photoId];
     
     NSDictionary *postToWallDict = [self sendRequest:postToWallLink];
     NSString *errorMsg = [[postToWallDict objectForKey:@"error"] objectForKey:@"error_msg"];

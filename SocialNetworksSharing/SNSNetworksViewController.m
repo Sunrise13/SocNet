@@ -36,7 +36,7 @@
     shareBubbles.showTwitterBubble = YES;
     shareBubbles.showGooglePlusBubble = YES;
     shareBubbles.showVkBubble = YES;
-    shareBubbles.showInstagramBubble = YES;
+    //shareBubbles.showInstagramBubble = YES;
     shareBubbles.showLinkedInBubble=YES;
     [shareBubbles show];
     
@@ -55,10 +55,18 @@
         case AAShareBubbleTypeFacebook: type=SNSSocialNetworkTypeFacebook; break;
         case AAShareBubbleTypeLinkedIn: type=SNSSocialNetworkTypeLinkedIn; break;
         case AAShareBubbleTypeTwitter: type=SNSSocialNetworkTypeTwitter; break;
-        case AAShareBubbleTypeVk: type=SNSSocialNetworkTypeVkontakte;  break;
+        case AAShareBubbleTypeVk: type=SNSSocialNetworkTypeVkontakte;   break;
         case AAShareBubbleTypeGooglePlus: type=SNSSocialNetworkTypeGooglePlus; break;
     }
+    if(type==SNSSocialNetworkTypeLinkedIn)
+    {
+       id socialNetwork= [_network getNetwork:type];
+        [socialNetwork setDataSource:[SNSPostData sharedPostData]];
+        [socialNetwork share];
+        return;
+    }
     id socialNetwork= [_network getNetwork:type];
+    
 
     [socialNetwork share];
 

@@ -23,9 +23,6 @@
 {
     [super viewDidLoad];
     [SNSPostData sharedPostData];//maybe it's not needed
-
-    _shareText = [[UITextView alloc] init];
-    [self.shareText setText:@"Enter your text here"];
 }
 
 

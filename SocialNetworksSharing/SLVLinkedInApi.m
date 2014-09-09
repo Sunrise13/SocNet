@@ -105,7 +105,8 @@
     //[root setObject:share forKey:@"share"];
     
     
-    [root setObject:[_dataSource shareText]  forKey:@"comment"];
+   [root setObject:[_dataSource shareText]  forKey:@"comment"];
+    //[root setObject:@"Social Networks"  forKey:@"comment"];
     //[root setObject:content forKey:@"content"];
    // [content setObject:@"Mr. Cat go crazy" forKey:@"title"];
     //[content setObject:@"http://google.com.ua" forKey:@"submitted-url"];
