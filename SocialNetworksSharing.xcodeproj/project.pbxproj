@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		1D20A61B19BE03E5000EC3A5 /* default.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1D20A61A19BE03E5000EC3A5 /* default.jpg */; };
 		1D20A61E19BE07F1000EC3A5 /* SNSVkontakteApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D20A61D19BE07F1000EC3A5 /* SNSVkontakteApi.m */; };
+		1D20A62319BE2FB7000EC3A5 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D20A62019BE2FB7000EC3A5 /* GoogleOpenSource.framework */; };
+		1D20A62419BE2FB7000EC3A5 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1D20A62119BE2FB7000EC3A5 /* GooglePlus.bundle */; };
+		1D20A62519BE2FB7000EC3A5 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D20A62219BE2FB7000EC3A5 /* GooglePlus.framework */; };
+		1D20A62819BE300A000EC3A5 /* SNSGooglePlus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D20A62719BE300A000EC3A5 /* SNSGooglePlus.m */; };
+		1D20A62A19BE355E000EC3A5 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D20A62919BE355E000EC3A5 /* CoreText.framework */; };
+		1D20A62E19BEC6D8000EC3A5 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D20A62D19BEC6D8000EC3A5 /* CoreMotion.framework */; };
+		1D20A63019BEC6E9000EC3A5 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D20A62F19BEC6E9000EC3A5 /* SystemConfiguration.framework */; };
+		1D20A63219BEC6F4000EC3A5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D20A63119BEC6F4000EC3A5 /* Security.framework */; };
+		1D20A63419BEC701000EC3A5 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D20A63319BEC701000EC3A5 /* AssetsLibrary.framework */; };
+		1D20A63619BEC715000EC3A5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D20A63519BEC715000EC3A5 /* CoreLocation.framework */; };
+		1D20A63819BEC721000EC3A5 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D20A63719BEC721000EC3A5 /* MediaPlayer.framework */; };
+		1D20A63A19BEC72E000EC3A5 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D20A63919BEC72E000EC3A5 /* AddressBook.framework */; };
 		1D6F400D19BB062B008F92E8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6F400C19BB062B008F92E8 /* Foundation.framework */; };
 		1D6F400F19BB062B008F92E8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6F400E19BB062B008F92E8 /* CoreGraphics.framework */; };
 		1D6F401119BB062B008F92E8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6F401019BB062B008F92E8 /* UIKit.framework */; };
@@ -45,13 +57,7 @@
 		1D6F409219BB567B008F92E8 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F407F19BB567B008F92E8 /* UIProgressView+AFNetworking.m */; };
 		1D6F409319BB567B008F92E8 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F408119BB567B008F92E8 /* UIRefreshControl+AFNetworking.m */; };
 		1D6F409419BB567B008F92E8 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F408319BB567B008F92E8 /* UIWebView+AFNetworking.m */; };
-		1D6F409919BB5957008F92E8 /* SNSVkontakte.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F409819BB5957008F92E8 /* SNSVkontakte.m */; };
-		1D6F409C19BB5D4D008F92E8 /* SNSRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F409B19BB5D4D008F92E8 /* SNSRequestManager.m */; };
-		1D6F409F19BB5DD7008F92E8 /* SNSUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F409E19BB5DD7008F92E8 /* SNSUser.m */; };
-		1D6F40A219BB6746008F92E8 /* SNSVkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F40A119BB6746008F92E8 /* SNSVkViewController.m */; };
 		1D6F40AE19BDB469008F92E8 /* SNSPostData.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F40AD19BDB469008F92E8 /* SNSPostData.m */; };
-		1D6F40B119BDBDE0008F92E8 /* NSString+StringBetween.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F40B019BDBDE0008F92E8 /* NSString+StringBetween.m */; };
-		1D6F40B419BDBE28008F92E8 /* SNSVkToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F40B319BDBE28008F92E8 /* SNSVkToken.m */; };
 		1D6F40B719BDC266008F92E8 /* SNSTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D6F40B619BDC266008F92E8 /* SNSTwitter.m */; };
 		3026D40F19BDFC4500928EE0 /* SLVOAuthSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3026D40E19BDFC4500928EE0 /* SLVOAuthSetup.m */; };
 		3026D41119BDFC4F00928EE0 /* SLVTokenSocialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3026D41019BDFC4F00928EE0 /* SLVTokenSocialManager.m */; };
@@ -75,6 +81,19 @@
 		1D20A61A19BE03E5000EC3A5 /* default.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default.jpg; sourceTree = "<group>"; };
 		1D20A61C19BE07F1000EC3A5 /* SNSVkontakteApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNSVkontakteApi.h; sourceTree = "<group>"; };
 		1D20A61D19BE07F1000EC3A5 /* SNSVkontakteApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSVkontakteApi.m; sourceTree = "<group>"; };
+		1D20A62019BE2FB7000EC3A5 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleOpenSource.framework; sourceTree = "<group>"; };
+		1D20A62119BE2FB7000EC3A5 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
+		1D20A62219BE2FB7000EC3A5 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlus.framework; sourceTree = "<group>"; };
+		1D20A62619BE300A000EC3A5 /* SNSGooglePlus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNSGooglePlus.h; sourceTree = "<group>"; };
+		1D20A62719BE300A000EC3A5 /* SNSGooglePlus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSGooglePlus.m; sourceTree = "<group>"; };
+		1D20A62919BE355E000EC3A5 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		1D20A62D19BEC6D8000EC3A5 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		1D20A62F19BEC6E9000EC3A5 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		1D20A63119BEC6F4000EC3A5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		1D20A63319BEC701000EC3A5 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		1D20A63519BEC715000EC3A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1D20A63719BEC721000EC3A5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		1D20A63919BEC72E000EC3A5 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		1D6F400919BB062B008F92E8 /* SocialNetworksSharing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetworksSharing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6F400C19BB062B008F92E8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6F400E19BB062B008F92E8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -139,20 +158,8 @@
 		1D6F408119BB567B008F92E8 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		1D6F408219BB567B008F92E8 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		1D6F408319BB567B008F92E8 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
-		1D6F409719BB5957008F92E8 /* SNSVkontakte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNSVkontakte.h; sourceTree = "<group>"; };
-		1D6F409819BB5957008F92E8 /* SNSVkontakte.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSVkontakte.m; sourceTree = "<group>"; };
-		1D6F409A19BB5D4D008F92E8 /* SNSRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNSRequestManager.h; sourceTree = "<group>"; };
-		1D6F409B19BB5D4D008F92E8 /* SNSRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSRequestManager.m; sourceTree = "<group>"; };
-		1D6F409D19BB5DD7008F92E8 /* SNSUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNSUser.h; sourceTree = "<group>"; };
-		1D6F409E19BB5DD7008F92E8 /* SNSUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSUser.m; sourceTree = "<group>"; };
-		1D6F40A019BB6746008F92E8 /* SNSVkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNSVkViewController.h; sourceTree = "<group>"; };
-		1D6F40A119BB6746008F92E8 /* SNSVkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSVkViewController.m; sourceTree = "<group>"; };
 		1D6F40AC19BDB469008F92E8 /* SNSPostData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNSPostData.h; sourceTree = "<group>"; };
 		1D6F40AD19BDB469008F92E8 /* SNSPostData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSPostData.m; sourceTree = "<group>"; };
-		1D6F40AF19BDBDE0008F92E8 /* NSString+StringBetween.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+StringBetween.h"; sourceTree = "<group>"; };
-		1D6F40B019BDBDE0008F92E8 /* NSString+StringBetween.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+StringBetween.m"; sourceTree = "<group>"; };
-		1D6F40B219BDBE28008F92E8 /* SNSVkToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNSVkToken.h; sourceTree = "<group>"; };
-		1D6F40B319BDBE28008F92E8 /* SNSVkToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSVkToken.m; sourceTree = "<group>"; };
 		1D6F40B519BDC266008F92E8 /* SNSTwitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNSTwitter.h; sourceTree = "<group>"; };
 		1D6F40B619BDC266008F92E8 /* SNSTwitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSTwitter.m; sourceTree = "<group>"; };
 		3026D40E19BDFC4500928EE0 /* SLVOAuthSetup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SLVOAuthSetup.m; path = SocialNetworksSharing/SLVOAuthSetup.m; sourceTree = "<group>"; };
@@ -173,8 +180,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D20A63A19BEC72E000EC3A5 /* AddressBook.framework in Frameworks */,
+				1D20A63819BEC721000EC3A5 /* MediaPlayer.framework in Frameworks */,
+				1D20A63619BEC715000EC3A5 /* CoreLocation.framework in Frameworks */,
+				1D20A63419BEC701000EC3A5 /* AssetsLibrary.framework in Frameworks */,
+				1D20A63219BEC6F4000EC3A5 /* Security.framework in Frameworks */,
+				1D20A63019BEC6E9000EC3A5 /* SystemConfiguration.framework in Frameworks */,
+				1D20A62E19BEC6D8000EC3A5 /* CoreMotion.framework in Frameworks */,
+				1D20A62A19BE355E000EC3A5 /* CoreText.framework in Frameworks */,
+				1D20A62519BE2FB7000EC3A5 /* GooglePlus.framework in Frameworks */,
 				1D6F400F19BB062B008F92E8 /* CoreGraphics.framework in Frameworks */,
 				1D6F401119BB062B008F92E8 /* UIKit.framework in Frameworks */,
+				1D20A62319BE2FB7000EC3A5 /* GoogleOpenSource.framework in Frameworks */,
 				1D6F400D19BB062B008F92E8 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,9 +209,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D20A61F19BE2FB7000EC3A5 /* Googleframeworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D20A62019BE2FB7000EC3A5 /* GoogleOpenSource.framework */,
+				1D20A62119BE2FB7000EC3A5 /* GooglePlus.bundle */,
+				1D20A62219BE2FB7000EC3A5 /* GooglePlus.framework */,
+			);
+			path = Googleframeworks;
+			sourceTree = "<group>";
+		};
 		1D6F400019BB062B008F92E8 = {
 			isa = PBXGroup;
 			children = (
+				1D20A61F19BE2FB7000EC3A5 /* Googleframeworks */,
 				1D20A61A19BE03E5000EC3A5 /* default.jpg */,
 				3026D41019BDFC4F00928EE0 /* SLVTokenSocialManager.m */,
 				3026D40E19BDFC4500928EE0 /* SLVOAuthSetup.m */,
@@ -218,6 +246,14 @@
 		1D6F400B19BB062B008F92E8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1D20A63919BEC72E000EC3A5 /* AddressBook.framework */,
+				1D20A63719BEC721000EC3A5 /* MediaPlayer.framework */,
+				1D20A63519BEC715000EC3A5 /* CoreLocation.framework */,
+				1D20A63319BEC701000EC3A5 /* AssetsLibrary.framework */,
+				1D20A63119BEC6F4000EC3A5 /* Security.framework */,
+				1D20A62F19BEC6E9000EC3A5 /* SystemConfiguration.framework */,
+				1D20A62D19BEC6D8000EC3A5 /* CoreMotion.framework */,
+				1D20A62919BE355E000EC3A5 /* CoreText.framework */,
 				1D6F400C19BB062B008F92E8 /* Foundation.framework */,
 				1D6F400E19BB062B008F92E8 /* CoreGraphics.framework */,
 				1D6F401019BB062B008F92E8 /* UIKit.framework */,
@@ -337,6 +373,8 @@
 		1D6F405D19BB43BE008F92E8 /* GooglePlus */ = {
 			isa = PBXGroup;
 			children = (
+				1D20A62619BE300A000EC3A5 /* SNSGooglePlus.h */,
+				1D20A62719BE300A000EC3A5 /* SNSGooglePlus.m */,
 			);
 			name = GooglePlus;
 			sourceTree = "<group>";
@@ -404,18 +442,6 @@
 		1D6F409619BB593C008F92E8 /* Vkontakte */ = {
 			isa = PBXGroup;
 			children = (
-				1D6F40B219BDBE28008F92E8 /* SNSVkToken.h */,
-				1D6F40B319BDBE28008F92E8 /* SNSVkToken.m */,
-				1D6F40AF19BDBDE0008F92E8 /* NSString+StringBetween.h */,
-				1D6F40B019BDBDE0008F92E8 /* NSString+StringBetween.m */,
-				1D6F409719BB5957008F92E8 /* SNSVkontakte.h */,
-				1D6F409819BB5957008F92E8 /* SNSVkontakte.m */,
-				1D6F409A19BB5D4D008F92E8 /* SNSRequestManager.h */,
-				1D6F409B19BB5D4D008F92E8 /* SNSRequestManager.m */,
-				1D6F409D19BB5DD7008F92E8 /* SNSUser.h */,
-				1D6F409E19BB5DD7008F92E8 /* SNSUser.m */,
-				1D6F40A019BB6746008F92E8 /* SNSVkViewController.h */,
-				1D6F40A119BB6746008F92E8 /* SNSVkViewController.m */,
 				1D20A61C19BE07F1000EC3A5 /* SNSVkontakteApi.h */,
 				1D20A61D19BE07F1000EC3A5 /* SNSVkontakteApi.m */,
 			);
@@ -533,6 +559,7 @@
 				1D6F404519BB0788008F92E8 /* AAShareBubbles.bundle in Resources */,
 				1D6F401719BB062B008F92E8 /* InfoPlist.strings in Resources */,
 				1D6F402019BB062B008F92E8 /* Main.storyboard in Resources */,
+				1D20A62419BE2FB7000EC3A5 /* GooglePlus.bundle in Resources */,
 				1D20A61B19BE03E5000EC3A5 /* default.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -558,7 +585,6 @@
 				1D6F408719BB567B008F92E8 /* AFNetworkReachabilityManager.m in Sources */,
 				1D6F404E19BB1379008F92E8 /* SNSNetworkFactory.m in Sources */,
 				1D6F408D19BB567B008F92E8 /* AFNetworkActivityIndicatorManager.m in Sources */,
-				1D6F409F19BB5DD7008F92E8 /* SNSUser.m in Sources */,
 				1D6F409119BB567B008F92E8 /* UIImageView+AFNetworking.m in Sources */,
 				D26894FD19BD8E6A0079E5B4 /* Users.m in Sources */,
 				1D6F408919BB567B008F92E8 /* AFURLConnectionOperation.m in Sources */,
@@ -567,20 +593,16 @@
 				1D6F409419BB567B008F92E8 /* UIWebView+AFNetworking.m in Sources */,
 				1D6F408419BB567B008F92E8 /* AFHTTPRequestOperation.m in Sources */,
 				1D6F408619BB567B008F92E8 /* AFHTTPSessionManager.m in Sources */,
+				1D20A62819BE300A000EC3A5 /* SNSGooglePlus.m in Sources */,
 				D26894FE19BD8E6A0079E5B4 /* Model.xcdatamodel in Sources */,
 				1D6F40B719BDC266008F92E8 /* SNSTwitter.m in Sources */,
-				1D6F40A219BB6746008F92E8 /* SNSVkViewController.m in Sources */,
 				1D6F408F19BB567B008F92E8 /* UIAlertView+AFNetworking.m in Sources */,
-				1D6F409919BB5957008F92E8 /* SNSVkontakte.m in Sources */,
 				1D6F408A19BB567B008F92E8 /* AFURLRequestSerialization.m in Sources */,
-				1D6F40B419BDBE28008F92E8 /* SNSVkToken.m in Sources */,
 				D26894FC19BD8E6A0079E5B4 /* SLVDBManager.m in Sources */,
 				1D6F401919BB062B008F92E8 /* main.m in Sources */,
 				1D6F408C19BB567B008F92E8 /* AFURLSessionManager.m in Sources */,
 				1D6F402319BB062B008F92E8 /* SNSViewController.m in Sources */,
-				1D6F40B119BDBDE0008F92E8 /* NSString+StringBetween.m in Sources */,
 				1D6F408519BB567B008F92E8 /* AFHTTPRequestOperationManager.m in Sources */,
-				1D6F409C19BB5D4D008F92E8 /* SNSRequestManager.m in Sources */,
 				1D6F409219BB567B008F92E8 /* UIProgressView+AFNetworking.m in Sources */,
 				1D6F404919BB081C008F92E8 /* SNSNetworksViewController.m in Sources */,
 				1D20A61E19BE07F1000EC3A5 /* SNSVkontakteApi.m in Sources */,
@@ -715,10 +737,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Googleframeworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialNetworksSharing/SocialNetworksSharing-Prefix.pch";
 				INFOPLIST_FILE = "SocialNetworksSharing/SocialNetworksSharing-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -730,10 +757,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Googleframeworks",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SocialNetworksSharing/SocialNetworksSharing-Prefix.pch";
 				INFOPLIST_FILE = "SocialNetworksSharing/SocialNetworksSharing-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

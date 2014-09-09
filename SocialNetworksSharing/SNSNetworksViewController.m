@@ -49,22 +49,19 @@
 }
 -(void)aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:(AAShareBubbleType)bubbleType
 {
-    SNSSocialNetworkType type;
+    SNSSocialNetworkType type = SNSSocialNetworkTypeFacebook;
     switch(bubbleType)
     {
         case AAShareBubbleTypeFacebook: type=SNSSocialNetworkTypeFacebook; break;
         case AAShareBubbleTypeLinkedIn: type=SNSSocialNetworkTypeLinkedIn; break;
         case AAShareBubbleTypeTwitter: type=SNSSocialNetworkTypeTwitter; break;
         case AAShareBubbleTypeVk: type=SNSSocialNetworkTypeVkontakte;  break;
+        case AAShareBubbleTypeGooglePlus: type=SNSSocialNetworkTypeGooglePlus; break;
     }
     id socialNetwork= [_network getNetwork:type];
 
-    NSString* txt;
-    UIImage* img;
     [socialNetwork share];
-    //[_network share];
-    
-    //[self.navigationController pushViewController:_network.controller animated:YES];
+
 }
 
 -(void)aaShareBubblesDidHide {

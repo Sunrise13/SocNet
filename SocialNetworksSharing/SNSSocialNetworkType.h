@@ -14,7 +14,8 @@ typedef enum SNSSocialNetworkType
     SNSSocialNetworkTypeFacebook,
     SNSSocialNetworkTypeTwitter,
     SNSSocialNetworkTypeLinkedIn,
-    SNSSocialNetworkTypeVkontakte
+    SNSSocialNetworkTypeVkontakte,
+    SNSSocialNetworkTypeGooglePlus
 } SNSSocialNetworkType;
 
 #endif

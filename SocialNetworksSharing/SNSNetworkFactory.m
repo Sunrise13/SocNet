@@ -11,8 +11,8 @@
 #import "SNSFacebook.h"
 #import "SNSTwitter.h"
 #import "SLVLinkedInApi.h"
-
 #import "SNSVkontakteApi.h"
+#import "SNSGooglePlus.h"
 
 @implementation SNSNetworkFactory
 
@@ -32,6 +32,9 @@
             break;
         case SNSSocialNetworkTypeVkontakte:
             return [[SNSVkontakteApi alloc]init];
+            break;
+        case SNSSocialNetworkTypeGooglePlus:
+            return [[SNSGooglePlus alloc] init];
             break;
     }
     return nil;

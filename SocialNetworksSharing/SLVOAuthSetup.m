@@ -187,7 +187,7 @@ CGRect rect;
             [absolutePath appendString:kLinkedInSecretKey];
             break;
         case SNSSocialNetworkTypeVkontakte:
-            absolutePath=[[NSMutableString alloc] initWithString:@"https://oauth.vk.com/authorize?client_id=4509556&scope=nohttps&redirect_uri=http://example.com&display=mobile&v=5.24&response_type=token"];
+            absolutePath=[[NSMutableString alloc] initWithString:@"https://oauth.vk.com/authorize?client_id=4509556&scope=139286&redirect_uri=http://example.com&display=mobile&v=5.24&response_type=token"];
             break;
     }
     

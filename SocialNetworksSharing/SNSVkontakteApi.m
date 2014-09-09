@@ -37,7 +37,7 @@
 -(void)share
 {
     
-    NSString * accessToken = @"d176f24a3174431f434ccd8096c7edb4af03ed39a977e4dc57e1b8792e5c2f38ae91122f88719267c0397"; //should be from DB
+    NSString * accessToken = @"944fa3a2506339d0be211fb2985c72f8ae7affcebac18e433e5de4c923114393efdcb8b59056baf9af353"; //should be from DB
     self.setOauth=[SLVOAuthSetup new];
     [self.setOauth setupWithServiceType:SNSSocialNetworkTypeVkontakte];
     
