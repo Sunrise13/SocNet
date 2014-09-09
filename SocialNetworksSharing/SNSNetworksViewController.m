@@ -59,8 +59,7 @@
     }
     id socialNetwork= [_network getNetwork:type];
 
-    NSString* txt;
-    UIImage* img;
+    [socialNetwork setDataSource:[SNSPostData sharedPostData]];
     [socialNetwork share];
     //[_network share];
     

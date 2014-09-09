@@ -31,6 +31,7 @@
 @property(nonatomic) __block NSDictionary * response;
 @property(nonatomic) SLVTokenSocialManager *oauth;
 
-@property(nonatomic) SLVOAuthSetup * setOauth;
+
+//@property(nonatomic) SLVOAuthSetup * setOauth;
 
 @end

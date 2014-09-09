@@ -13,5 +13,6 @@
 
 @dynamic serviceType;
 @dynamic token;
+@dynamic userID;
 
 @end

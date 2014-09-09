@@ -36,10 +36,18 @@
 #pragma mark - Ostap__to_mij_mynulyj_metop_share()
 -(void)share
 {
+    if(!self.user)
+    {self.oauth=[SLVTokenSocialManager new];
+        self.oauth.delegate=self;
+        self.oauth.type=SNSSocialNetworkTypeVkontakte;
+       [self.oauth getUser];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(share) name:@"userData" object:nil];
+        return;
+    }
     
     NSString * accessToken = @"d176f24a3174431f434ccd8096c7edb4af03ed39a977e4dc57e1b8792e5c2f38ae91122f88719267c0397"; //should be from DB
-    self.setOauth=[SLVOAuthSetup new];
-    [self.setOauth setupWithServiceType:SNSSocialNetworkTypeVkontakte];
+    //self.setOa=[SLVOAuthSetup new];
+    //[self.setOauth setupWithServiceType:SNSSocialNetworkTypeVkontakte];
     
     UIImage *image = [[SNSPostData sharedPostData] getImage];
     

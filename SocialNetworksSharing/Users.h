@@ -14,5 +14,6 @@
 
 @property (nonatomic, retain) NSString * serviceType;
 @property (nonatomic, retain) NSString * token;
+@property (nonatomic, retain) NSString * userID;
 
 @end

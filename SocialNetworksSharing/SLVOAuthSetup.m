@@ -127,9 +127,15 @@ CGRect rect;
                     loc2=[url rangeOfString:@"&expires_in"].location;
                     NSRange range=NSMakeRange(loc+13, loc2-loc-13);
                     NSString *token=[url substringWithRange:range];
+
+                    loc=[url rangeOfString:@"user_id="].location;
+                    NSRange range2=NSMakeRange(loc+8, [url length]);
+                    NSString *userID=[url substringWithRange:range2];
+
                     Users *user=[NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:[[SLVDBManager sharedManager] context]];
                     user.serviceType=@"Vkontakte";
                     user.token=token;
+                    user.userID=userID;
 
                     [self.delegate userData:user];
                     return NO;

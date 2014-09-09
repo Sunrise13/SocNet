@@ -3,6 +3,7 @@
     <entity name="Users" representedClassName="Users" syncable="YES">
         <attribute name="serviceType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="token" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
         <element name="Users" positionX="0" positionY="0" width="0" height="0"/>
