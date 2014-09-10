@@ -36,7 +36,6 @@
     shareBubbles.showTwitterBubble = YES;
     shareBubbles.showGooglePlusBubble = YES;
     shareBubbles.showVkBubble = YES;
-    //shareBubbles.showInstagramBubble = YES;
     shareBubbles.showLinkedInBubble=YES;
     [shareBubbles show];
     
@@ -54,22 +53,22 @@
     {
         case AAShareBubbleTypeFacebook: type=SNSSocialNetworkTypeFacebook; break;
         case AAShareBubbleTypeLinkedIn: type=SNSSocialNetworkTypeLinkedIn; break;
+        case AAShareBubbleTypeTwitter: type=SNSSocialNetworkTypeTwitter; break;
+        case AAShareBubbleTypeVk: type=SNSSocialNetworkTypeVkontakte;   break;
         case AAShareBubbleTypeGooglePlus: type=SNSSocialNetworkTypeGooglePlus; break;
     }
+    
     id socialNetwork= [_network getNetwork:type];
-    //[socialNetwork settingDataSource:[SNSPostData sharedPostData]];
+    self.some=socialNetwork;
+    NSLog(@"in aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:  before share call%@",socialNetwork);
     NSLog(@"%@", socialNetwork);
     [socialNetwork share];
-    //[((UINavigationController *)[[UIApplication sharedApplication] keyWindow].rootViewController) popViewControllerAnimated:YES];
-    
-    //[_network share];
-    
-
-    [socialNetwork share];
+    NSLog(@"in aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:  after share call%@",socialNetwork);
 
 }
 
--(void)aaShareBubblesDidHide {
+-(void)aaShareBubblesDidHide
+{
     NSLog(@"All Bubbles hidden");
 }
 

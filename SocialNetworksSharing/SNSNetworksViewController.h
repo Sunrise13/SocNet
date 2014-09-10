@@ -14,6 +14,7 @@
 @interface  SNSNetworksViewController : UIViewController
 
 @property (strong, nonatomic) SNSNetworkFactory* network;
+@property (strong, nonatomic) id<SNSSocialNetwork> some;
 
 //
 /////////////////////////////////////////////////////////////////

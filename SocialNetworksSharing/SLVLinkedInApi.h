@@ -6,12 +6,8 @@
 //  Copyright (c) 2014 SoftServe Lv-120. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-//#import "SLVViewController.h"
 #import "Users.h"
-#import "SLVOAuthSetup.h"
 #import "SLVTokenSocialManager.h"
-#import "SNSSocialNetwork.h"
 #import "SNSPostData.h"
 
 @class REComposeViewController;
@@ -23,15 +19,17 @@
 
 @end
 
-@interface SLVLinkedInApi : NSObject <SLVTokenSocialManagerDelegate, SNSSocialNetwork>
+@interface SLVLinkedInApi : NSObject <SLVTokenSocialManagerDelegate>
 
 
 @property(nonatomic) Users * user;
 @property(nonatomic) id<SLVLinkedInApiDelegate> delegate;
 @property(nonatomic) id<SNSSocialNetworkDataSource> dataSource;
-@property(nonatomic) __block NSDictionary * response;
+
 @property(nonatomic) SLVTokenSocialManager *oauth;
 
 -(NSDictionary *)getProfile;
-//-(void)makeShare;
+-(void)share;
+-(void)settingDataSource:(id<SNSSocialNetworkDataSource>)dataSource;
+
 @end

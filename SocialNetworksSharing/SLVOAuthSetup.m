@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 SoftServe LV-120. All rights reserved.
 //
 
+#import <AFNetworking.h>
 #import "SLVOAuthSetup.h"
 #import "SLVDBManager.h"
 #import "Users.h"
+
 static  NSString * kLinkedInApiKey=@"772ojbop21zpbj";
 static  NSString * kLinkedInSecretKey=@"SEFTnXX310DnJtE6";
 
 
-static  NSString * kFacebookApiKey=@"1460000980941762";
-static  NSString * kFacebookSecretKey=@"7e349e1a9a5ea5b520d69c9d01a1e455";
 
 
 @interface SLVOAuthSetup() <UIWebViewDelegate>
@@ -38,10 +38,10 @@ CGRect rect;
     {
         rect = CGRectMake(0, 0, 320, 600);
     }
-    [self ShowWebView];
+    [self setupWebView];
 }
 
-- (void) ShowWebView
+- (void) setupWebView
 {
     [self.webView setFrame:rect];
     self.webView.delegate=self;
@@ -59,7 +59,7 @@ CGRect rect;
     self.webView=[[UIWebView alloc] init];
     
     [self viewDidLayoutSubviews];
-    [self ShowWebView];
+    [self setupWebView];
     
     NSMutableString *urlAbsolutePath;
     NSURLRequest *request;
@@ -189,6 +189,24 @@ CGRect rect;
             break;
     }
     
+    
+    
+    
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    NSDictionary *parameters = @{@"foo": @"bar"};
+//    [manager POST:@"http://example.com/resources.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSLog(@"JSON: %@", responseObject);
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"Error: %@", error);
+//    }];
+
+    AFHTTPRequestOperationManager *manager=[AFHTTPRequestOperationManager manager];
+    
+    [manager POST:[urlAbsolutePath absoluteString] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"Success");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Failure");
+    }];
 
     urlAbsolutePath=[NSURL URLWithString:absolutePath];
     
@@ -196,44 +214,44 @@ CGRect rect;
     [request setHTTPMethod:@"POST"];
     
 
-    [NSURLConnection sendAsynchronousRequest:request
-                                      queue:[NSOperationQueue mainQueue]
-                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
-     {
-
-         NSDictionary * dic=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-         
-         Users *user;
-         NSString *accessToken;
-         switch (self.serviceType)
-         {
-             case SNSSocialNetworkTypeLinkedIn:
-             
-                 accessToken=dic[@"access_token"];
-                 user=[NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:[[SLVDBManager sharedManager] context]];
-                 user.serviceType=@"LinkedIn";
-                 user.token=accessToken;
-                 break;
-             
-             case SNSSocialNetworkTypeVkontakte:
-                 
-                 accessToken=dic[@"access_token"];
-                 user=[NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:[[SLVDBManager sharedManager] context]];
-                 user.serviceType=@"Vkontakte";
-                 user.token=accessToken;
-                 break;
-                 
-
-         }
-        
-         [self.delegate userData:user];
-         [self.webView removeFromSuperview];
-         [[[UIApplication sharedApplication] keyWindow].rootViewController dismissViewControllerAnimated:YES completion:nil];
-         [((UINavigationController *)[[UIApplication sharedApplication] keyWindow].rootViewController) popViewControllerAnimated:YES];
-
-
-     }
-     ];
+//    [NSURLConnection sendAsynchronousRequest:request
+//                                      queue:[NSOperationQueue mainQueue]
+//                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+//     {
+//
+//         NSDictionary * dic=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+//         
+//         Users *user;
+//         NSString *accessToken;
+//         switch (self.serviceType)
+//         {
+//             case SNSSocialNetworkTypeLinkedIn:
+//             
+//                 accessToken=dic[@"access_token"];
+//                 user=[NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:[[SLVDBManager sharedManager] context]];
+//                 user.serviceType=@"LinkedIn";
+//                 user.token=accessToken;
+//                 break;
+//             
+//             case SNSSocialNetworkTypeVkontakte:
+//                 
+//                 accessToken=dic[@"access_token"];
+//                 user=[NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:[[SLVDBManager sharedManager] context]];
+//                 user.serviceType=@"Vkontakte";
+//                 user.token=accessToken;
+//                 break;
+//                 
+//
+//         }
+//        
+//         [self.delegate userData:user];
+//         [self.webView removeFromSuperview];
+//         [[[UIApplication sharedApplication] keyWindow].rootViewController dismissViewControllerAnimated:YES completion:nil];
+//         [((UINavigationController *)[[UIApplication sharedApplication] keyWindow].rootViewController) popViewControllerAnimated:YES];
+//
+//
+//     }
+//     ];
     
 }
 

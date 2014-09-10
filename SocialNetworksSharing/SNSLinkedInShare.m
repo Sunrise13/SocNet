@@ -6,16 +6,20 @@
 //  Copyright (c) 2014 Ostap R. All rights reserved.
 //
 
-#import "SNSLinkedInShare.h"
 #import <REComposeViewController.h>
+#import "SNSLinkedInShare.h"
 #import "SLVLinkedInApi.h"
 #import "SNSPostData.h"
 
-@interface SNSLinkedInShare () 
+@interface SNSLinkedInShare ()
+
+@property(nonatomic) REComposeViewController * shareViewController;
 
 @end
 
 @implementation SNSLinkedInShare
+
+#pragma mark - SNSSocialNetwork Protocol
 
 -(void)share
 {
@@ -29,11 +33,14 @@
         {
             [composeViewController dismissViewControllerAnimated:YES completion:nil];
             
-            if (result == REComposeResultCancelled) {
+            if (result == REComposeResultCancelled)
+            {
                 NSLog(@"Cancelled");
+                // Make here dismiss
             }
             
-            if (result == REComposeResultPosted) {
+            if (result == REComposeResultPosted)
+            {
                 NSLog(@"Text: %@", composeViewController.text);
                 [[SNSPostData sharedPostData] setPostText:composeViewController.text];
                 SLVLinkedInApi * linkedInAPI=[SLVLinkedInApi new];

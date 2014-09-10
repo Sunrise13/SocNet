@@ -14,11 +14,12 @@
 #import "SNSNetworksViewController.h"
 #import "SNSSocialNetwork.h"
 
-@interface SNSGooglePlus : NSObject <GPPSignInDelegate, SNSSocialNetwork, GPPShareDelegate>
+@interface SNSGooglePlus : UIViewController < SNSSocialNetwork>
 
 @property(assign, nonatomic) BOOL authorised;
 @property(weak, nonatomic) SNSNetworksViewController * controller;
 @property(weak, nonatomic) GPPSignIn*signIN;
-
+- (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
+                   error: (NSError *) error;
 
 @end

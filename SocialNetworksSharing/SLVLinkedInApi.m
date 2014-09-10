@@ -37,10 +37,9 @@
          NSDictionary * dic=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
          NSLog(@"%@", dic);
          NSLog(@"%@", dic[@"location"][@"name"]);
-         self.response=dic;
          [self.delegate dataOfProfile:dic];
-     }
-     ];
+     }];
+    
     return nil;
 }
 -(void)settingDataSource:(id<SNSSocialNetworkDataSource>)dataSource
@@ -51,25 +50,23 @@
 -(void)share
 {
     if(!self.user)
-    {self.oauth=[SLVTokenSocialManager new];
+    {
+        self.oauth=[SLVTokenSocialManager new];
         self.oauth.delegate=self;
         self.oauth.type=SNSSocialNetworkTypeLinkedIn;
-       [self.oauth getUser];
+        [self.oauth getUser];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(share) name:@"userData" object:nil];
         return;
     }
     
-    
-
   
     NSString * urlOatuh=@"?oauth2_access_token=";
     NSString * urlPeople=@"https://api.linkedin.com/v1/people/~/shares";
-    
+
     NSMutableString *url=[[NSMutableString alloc] initWithString:urlPeople];
     [url appendString:urlOatuh];
     [url appendString:self.user.token];
     
-    NSLog(@"%@", url);
     
     
     NSMutableURLRequest * request=[[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
@@ -79,31 +76,20 @@
     
     
     NSMutableDictionary * root=[[NSMutableDictionary alloc] init];
-    //NSMutableDictionary * share=[[NSMutableDictionary alloc] init];
-    NSMutableDictionary * content=[[NSMutableDictionary alloc] init];
     NSMutableDictionary * visibility=[[NSMutableDictionary alloc] init];
     
-    //[root setObject:share forKey:@"share"];
     
-    
-   [root setObject:[_dataSource shareText]  forKey:@"comment"];
-    //[root setObject:@"Social Networks"  forKey:@"comment"];
-    //[root setObject:content forKey:@"content"];
-   // [content setObject:@"Mr. Cat go crazy" forKey:@"title"];
-    //[content setObject:@"http://google.com.ua" forKey:@"submitted-url"];
+    [root setObject:[_dataSource shareText]  forKey:@"comment"];
     [root setObject:visibility forKey:@"visibility"];
     
-    [visibility setObject:@"anyone" forKey:@"code"]; //For now we without content but with visibility
+    [visibility setObject:@"anyone" forKey:@"code"];
     
-    NSLog(@"%@",root);
    
 
     
     NSData * json=[NSJSONSerialization dataWithJSONObject:root options:NSJSONWritingPrettyPrinted error:nil];
-
-    
     [request setHTTPBody:json];
-    NSError *error;
+    
     
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
@@ -112,9 +98,6 @@
 
     
          NSDictionary * dic=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-         NSLog(@"%@", dic);
-         NSLog(@"%@", error);
-         NSLog(@"%@", dic[@"updateUrl"]);
          [self.delegate madeShare:[NSURL URLWithString:dic[@"updateUrl"]]];
      }
      ];

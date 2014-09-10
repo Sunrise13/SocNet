@@ -8,13 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "SNSSocialNetwork.h"
-#import <REComposeViewController.h>
 
 @class REComposeViewController;
 
 @interface SNSLinkedInShare : NSObject <SNSSocialNetwork>
 
-@property(nonatomic) REComposeViewController * shareViewController;
 -(void)share;
 
 @end

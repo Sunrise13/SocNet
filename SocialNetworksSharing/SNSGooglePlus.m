@@ -8,27 +8,33 @@
 
 #import "SNSGooglePlus.h"
 #import "SNSPostData.h"
+#import "SNSAppDelegate.h"
 #import <GoogleOpenSource/GoogleOpenSource.h>
 #import <GooglePlus/GooglePlus.h>
+#import <GoogleOpenSource/GTLPlusConstants.h>
 
+@interface SNSGooglePlus() <GPPSignInDelegate, GPPShareDelegate>
 
+@end
 //#define GOOGLE_PLUS_CLIEND_ID @"440607175691-4bhfdefg7sbkrrjk3mp9t5dc15upiet0.apps.googleusercontent.com"
 
-@implementation SNSGooglePlus 
+@implementation SNSGooglePlus
 
-static NSString * const kClientId = @"24680690125-2oo1g3qilirpek47sjtm88jtc9g4qnht.apps.googleusercontent.com";
+static NSString * const kClientId = @"597787714490-5ja44i80t83qaut0cop24ur15a3q8b78.apps.googleusercontent.com";
 
 
 - (void)SignInButtonSimulated
 {
-    GPPSignIn *signIn = [GPPSignIn sharedInstance];
-    self.signIN = signIn;
-    signIn.shouldFetchGooglePlusUser = YES;
-    signIn.shouldFetchGoogleUserEmail = YES;
-    signIn.scopes = @[ kGTLAuthScopePlusLogin ];
-    signIn.clientID = kClientId;
-    signIn.delegate = self;
-    [signIn authenticate];
+    self.signIN = [GPPSignIn sharedInstance];
+    
+    self.signIN.delegate=self;
+    self.signIN.shouldFetchGooglePlusUser = YES;
+    self.signIN.shouldFetchGoogleUserEmail = YES;
+    self.signIN.scopes = @[ kGTLAuthScopePlusLogin ];
+    self.signIN.clientID = kClientId;
+    
+    [self.signIN authenticate];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -36,6 +42,7 @@ static NSString * const kClientId = @"24680690125-2oo1g3qilirpek47sjtm88jtc9g4qn
     [self didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
                    error: (NSError *) error
@@ -53,10 +60,22 @@ static NSString * const kClientId = @"24680690125-2oo1g3qilirpek47sjtm88jtc9g4qn
 
 // Share Code
 - (void) share {
-    
+        NSLog(@"in share %@",self);
     if(!self.authorised)
     {
+        NSLog(@"before call SignInButtonSimulated %@",self);
         [self SignInButtonSimulated];
+        NSLog(@"after call SignInButtonSimulated %@",self);
+       // NSLog(@"%hhd sllsls", [self.signIN hasAuthInKeychain]);
+       // NSLog(@"%@", self.signIN.delegate);
+      //  if(self.signIN.delegate ==nil)
+        {
+            NSLog(@"BAD day");
+        }
+        //[self methodSignatureForSelector:@selector(finishedWithAuth:error:)];
+       // NSLog(@"%hhd",[[GPPSignIn sharedInstance] trySilentAuthentication]);
+        
+
     }
     else
         [self Share];
