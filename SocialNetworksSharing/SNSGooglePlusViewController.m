@@ -10,7 +10,8 @@
 #import <GooglePlus/GooglePlus.h>
 #import <GoogleOpenSource/GoogleOpenSource.h>
 
-static NSString * const kClientId=@"597787714490-oogas57jg6nihi6c1p8o8iastb50rm8d.apps.googleusercontent.com";
+static NSString * const kClientId=@"597787714490-5ja44i80t83qaut0cop24ur15a3q8b78.apps.googleusercontent.com";
+//597787714490-oogas57jg6nihi6c1p8o8iastb50rm8d.apps.googleusercontent.com
 
 @interface SNSGooglePlusViewController () <GPPSignInDelegate>
 
@@ -29,14 +30,6 @@ static NSString * const kClientId=@"597787714490-oogas57jg6nihi6c1p8o8iastb50rm8
 }
 -(void)share
 {
-    
-    [self view];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
     GPPSignIn *signIn = [GPPSignIn sharedInstance];
     signIn.shouldFetchGooglePlusUser = YES;
     //signIn.shouldFetchGoogleUserEmail = YES;  // Uncomment to get the user's email
@@ -50,8 +43,16 @@ static NSString * const kClientId=@"597787714490-oogas57jg6nihi6c1p8o8iastb50rm8
     
     // Optional: declare signIn.actions, see "app activities"
     signIn.delegate = self;
-    
+    NSLog(@"%@",[[NSBundle mainBundle] bundleIdentifier]);
     [signIn authenticate];
+
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+   
    
 }
 

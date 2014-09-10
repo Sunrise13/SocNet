@@ -14,6 +14,7 @@
 #import "SNSSocialNetwork.h"
 #import "SNSPostData.h"
 
+@class REComposeViewController;
 @protocol SLVLinkedInApiDelegate <NSObject>
 
 @optional
@@ -30,6 +31,7 @@
 @property(nonatomic) id<SNSSocialNetworkDataSource> dataSource;
 @property(nonatomic) __block NSDictionary * response;
 @property(nonatomic) SLVTokenSocialManager *oauth;
+
 -(NSDictionary *)getProfile;
 //-(void)makeShare;
 @end

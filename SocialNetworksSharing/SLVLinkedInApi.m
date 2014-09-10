@@ -8,16 +8,9 @@
 
 #import "SLVLinkedInApi.h"
 #import "SLVOAuthSetup.h"
+#import <REComposeViewController.h>
 
 @implementation SLVLinkedInApi
-
--(instancetype)init
-{
-    self=[super init];
-    //_user=[[SLVOAuthSetup new]getUser];
-    
-    return self;
-}
 
 -(void)userData:(Users *)user
 {
@@ -65,6 +58,9 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(share) name:@"userData" object:nil];
         return;
     }
+    
+    
+
   
     NSString * urlOatuh=@"?oauth2_access_token=";
     NSString * urlPeople=@"https://api.linkedin.com/v1/people/~/shares";
@@ -80,21 +76,6 @@
     [request setHTTPMethod:@"POST"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request addValue:@"json" forHTTPHeaderField:@"x-li-format"];
-    
-    //Formatting data for POST request
-    
-    //    {
-    //        "share": {
-    //            "comment": "Check out the LinkedIn Share API!",
-    //            "content": {
-    //                "title": "LinkedIn Developers Documentation On Using the Share API",
-    //                "description": "Leverage the Share API to maximize engagement on user-generated content on LinkedIn",
-    //                "submitted-url": "https://developer.linkedin.com/documents/share-api",
-    //                "submitted-image-url": "https://m3.licdn.com/media/p/3/000/124/1a6/089a29a.png"
-    //            },
-    //            "visibility": { "code": "anyone" }
-    //        }
-    //    }
     
     
     NSMutableDictionary * root=[[NSMutableDictionary alloc] init];

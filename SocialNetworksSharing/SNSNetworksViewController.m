@@ -59,7 +59,10 @@
     }
     id socialNetwork= [_network getNetwork:type];
     //[socialNetwork settingDataSource:[SNSPostData sharedPostData]];
+    NSLog(@"%@", socialNetwork);
     [socialNetwork share];
+    //[((UINavigationController *)[[UIApplication sharedApplication] keyWindow].rootViewController) popViewControllerAnimated:YES];
+    
     //[_network share];
     
     //[self.navigationController pushViewController:_network.controller animated:YES];

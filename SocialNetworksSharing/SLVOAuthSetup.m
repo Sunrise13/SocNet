@@ -178,6 +178,8 @@ static  NSString * kOdnoklassnikiSecretKey  = @"5DB622C86B3A9B09648A47F3";
          [self.delegate userData:user];
          [self.webView removeFromSuperview];
          [[[UIApplication sharedApplication] keyWindow].rootViewController dismissViewControllerAnimated:YES completion:nil];
+         [((UINavigationController *)[[UIApplication sharedApplication] keyWindow].rootViewController) popViewControllerAnimated:YES];
+
 
      }
      ];
