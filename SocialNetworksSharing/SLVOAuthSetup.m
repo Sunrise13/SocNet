@@ -41,8 +41,6 @@ CGRect rect;
     [self ShowWebView];
 }
 
-
-
 - (void) ShowWebView
 {
     [self.webView setFrame:rect];

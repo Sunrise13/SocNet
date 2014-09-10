@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>cpm.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -36,10 +36,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>SocialBetworksSharing</string>
+			<string>com.SocialNetworksSharing</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>SocialBetworksSharing</string>
+				<string>com.SocialNetworksSharing</string>
 			</array>
 		</dict>
 	</array>

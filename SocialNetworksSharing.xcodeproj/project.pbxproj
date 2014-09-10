@@ -94,6 +94,7 @@
 		1D20A63519BEC715000EC3A5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1D20A63719BEC721000EC3A5 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		1D20A63919BEC72E000EC3A5 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		1D20A63D19BEF58F000EC3A5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		1D6F400919BB062B008F92E8 /* SocialNetworksSharing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialNetworksSharing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D6F400C19BB062B008F92E8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6F400E19BB062B008F92E8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -488,6 +489,7 @@
 				1D6F400519BB062B008F92E8 /* Sources */,
 				1D6F400619BB062B008F92E8 /* Frameworks */,
 				1D6F400719BB062B008F92E8 /* Resources */,
+				1D20A63B19BEF3D6000EC3A5 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -574,6 +576,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1D20A63B19BEF3D6000EC3A5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1D6F400519BB062B008F92E8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -647,6 +665,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				1D6F401F19BB062B008F92E8 /* Base */,
+				1D20A63D19BEF58F000EC3A5 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
