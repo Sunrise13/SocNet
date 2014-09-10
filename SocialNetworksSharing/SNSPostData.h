@@ -19,7 +19,8 @@
 + (id)sharedPostData;
 -(void) setWithText: (NSString*) text;
 -(void) setWithImage: (UIImage*) image;
-
+-(NSString*) getText;
+-(UIImage*) getImage;
 
 
 

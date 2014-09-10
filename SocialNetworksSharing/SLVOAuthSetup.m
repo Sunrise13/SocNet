@@ -16,16 +16,9 @@ static  NSString * kLinkedInSecretKey=@"SEFTnXX310DnJtE6";
 static  NSString * kFacebookApiKey=@"1460000980941762";
 static  NSString * kFacebookSecretKey=@"7e349e1a9a5ea5b520d69c9d01a1e455";
 
-//static  NSString * kOdnoklassnikiAppId = @"1099234816";
-//static  NSString * kOdnoklassnikiApiKey = @"CBAPPFICEBABABABA";
-//static  NSString * kOdnoklassnikiSecretKey = @"790E117F49C34E0674AF5924";
-
-static  NSString * kOdnoklassnikiAppId = @"1099077376";
-static  NSString * kOdnoklassnikiApiKey = @"CBAIJDICEBABABABA";
-static  NSString * kOdnoklassnikiSecretKey  = @"5DB622C86B3A9B09648A47F3";
-
 
 @interface SLVOAuthSetup() <UIWebViewDelegate>
+
 
 @property (nonatomic, strong) UIWebView * webView;
 @property (nonatomic) SNSSocialNetworkType serviceType;
@@ -33,17 +26,40 @@ static  NSString * kOdnoklassnikiSecretKey  = @"5DB622C86B3A9B09648A47F3";
 @end
 
 @implementation SLVOAuthSetup
+CGRect rect;
+
+- (void) viewWillLayoutSubviews
+{
+    if(UIInterfaceOrientationIsLandscape(self.interfaceOrientation))
+    {
+        rect = CGRectMake(0, 0, 570, 320);
+    }
+    else
+    {
+        rect = CGRectMake(0, 0, 320, 600);
+    }
+    [self ShowWebView];
+}
+
+- (void) ShowWebView
+{
+    [self.webView setFrame:rect];
+    self.webView.delegate=self;
+    self.webView.scalesPageToFit=YES;
+    [self.view addSubview:self.webView];
+    
+}
+
 
 -(void)setupWithServiceType:(SNSSocialNetworkType)serviceType
 {
     self.serviceType=serviceType;
     [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:self animated:YES completion:nil];
     
-    CGRect web=CGRectMake(0, 0, 700, 700);
-    self.webView=[[UIWebView alloc] initWithFrame:web];
-    self.webView.delegate=self;
-    self.webView.scalesPageToFit=YES;
-    [self.view addSubview:self.webView];
+    self.webView=[[UIWebView alloc] init];
+    
+    [self viewDidLayoutSubviews];
+    [self ShowWebView];
     
     NSMutableString *urlAbsolutePath;
     NSURLRequest *request;
@@ -66,6 +82,13 @@ static  NSString * kOdnoklassnikiSecretKey  = @"5DB622C86B3A9B09648A47F3";
             request=[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlAbsolutePath]];
             break;
         }
+        case SNSSocialNetworkTypeVkontakte:
+        {
+           // self.requestOperationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:url];
+            urlAbsolutePath=[[NSMutableString alloc] initWithString:@"https://oauth.vk.com/authorize?client_id=4509556&redirect_uri=http://example.com&display=mobile&v=5.24&response_type=token"];
+            request=[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:urlAbsolutePath]];
+            break;
+        }
 
     }
     
@@ -83,19 +106,35 @@ static  NSString * kOdnoklassnikiSecretKey  = @"5DB622C86B3A9B09648A47F3";
     if([url rangeOfString:@"http://example.com"].location!=NSNotFound)
     {
         NSInteger loc=NSNotFound;
+        NSInteger loc2;
         switch (self.serviceType)
         {
             case SNSSocialNetworkTypeLinkedIn:
                 loc=[url rangeOfString:@"code="].location;
+                if(loc!=NSNotFound)
+            {
+                NSString * tempToken=[self getTempTokenFromString:url];
+                [self getToken:tempToken];
+                return NO;
+            }
             break;
+            case SNSSocialNetworkTypeVkontakte:
+                loc=[url rangeOfString:@"access_token="].location;
+                if(loc!=NSNotFound)
+                {
+                    loc2=[url rangeOfString:@"&expires_in"].location;
+                    NSRange range=NSMakeRange(loc+13, loc2-loc-13);
+                    NSString *token=[url substringWithRange:range];
+                    Users *user=[NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:[[SLVDBManager sharedManager] context]];
+                    user.serviceType=@"Vkontakte";
+                    user.token=token;
 
+                    [self.delegate userData:user];
+                    return NO;
+                }
+                break;
         }
-        if(loc!=NSNotFound)
-        {
-            NSString * tempToken=[self getTempTokenFromString:url];
-            [self getToken:tempToken];
-            return NO;
-        }
+
         
     }
     
@@ -110,10 +149,14 @@ static  NSString * kOdnoklassnikiSecretKey  = @"5DB622C86B3A9B09648A47F3";
     NSInteger locationEnd;
     switch(self.serviceType)
     {
-            case SNSSocialNetworkTypeLinkedIn:
+        case SNSSocialNetworkTypeLinkedIn:
             locationBegin=[path rangeOfString:@"code="].location+5;
             locationEnd=[path rangeOfString:@"&state="].location;
             break;
+        case SNSSocialNetworkTypeVkontakte:
+            //
+            break;
+            
 
             
     }
@@ -133,7 +176,6 @@ static  NSString * kOdnoklassnikiSecretKey  = @"5DB622C86B3A9B09648A47F3";
     switch (self.serviceType)
     {
         case SNSSocialNetworkTypeLinkedIn:
-        {
             absolutePath=[[NSMutableString alloc] initWithString:@"https://www.linkedin.com/uas/oauth2/accessToken?grant_type=authorization_code&code="];
             [absolutePath appendString:tempToken];
             [absolutePath appendString:@"&redirect_uri=http://example.com"];
@@ -141,15 +183,16 @@ static  NSString * kOdnoklassnikiSecretKey  = @"5DB622C86B3A9B09648A47F3";
             [absolutePath appendString:kLinkedInApiKey];
             [absolutePath appendString:@"&client_secret="];
             [absolutePath appendString:kLinkedInSecretKey];
-        }
             break;
-            
+        case SNSSocialNetworkTypeVkontakte:
+            absolutePath=[[NSMutableString alloc] initWithString:@"https://oauth.vk.com/authorize?client_id=4509556&scope=139286&redirect_uri=http://example.com&display=mobile&v=5.24&response_type=token"];
+            break;
     }
     
 
     urlAbsolutePath=[NSURL URLWithString:absolutePath];
     
-   request=[[NSMutableURLRequest alloc] initWithURL:urlAbsolutePath];
+    request=[[NSMutableURLRequest alloc] initWithURL:urlAbsolutePath];
     [request setHTTPMethod:@"POST"];
     
 
@@ -165,14 +208,22 @@ static  NSString * kOdnoklassnikiSecretKey  = @"5DB622C86B3A9B09648A47F3";
          switch (self.serviceType)
          {
              case SNSSocialNetworkTypeLinkedIn:
-             {
+             
                  accessToken=dic[@"access_token"];
                  user=[NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:[[SLVDBManager sharedManager] context]];
                  user.serviceType=@"LinkedIn";
                  user.token=accessToken;
-             }
+                 break;
+             
+             case SNSSocialNetworkTypeVkontakte:
+                 
+                 accessToken=dic[@"access_token"];
+                 user=[NSEntityDescription insertNewObjectForEntityForName:@"Users" inManagedObjectContext:[[SLVDBManager sharedManager] context]];
+                 user.serviceType=@"Vkontakte";
+                 user.token=accessToken;
                  break;
                  
+
          }
         
          [self.delegate userData:user];

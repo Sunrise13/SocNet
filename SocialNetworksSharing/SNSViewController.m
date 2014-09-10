@@ -12,14 +12,25 @@
 
 @interface SNSViewController ()
 
+
 @end
 
 @implementation SNSViewController
 
+//Enter your text here
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [SNSPostData sharedPostData]; //maybe it's not needed
+    [SNSPostData sharedPostData];//maybe it's not needed
+}
+
+
+- (IBAction)cameraPressed:(id)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Uppload the photo" message:nil delegate:self cancelButtonTitle:@"Dissmiss" otherButtonTitles:@"Take the photo",@"Choose existing",nil];
+    alert.alertViewStyle = UIAlertViewStyleDefault;
+    [alert show];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,6 +52,7 @@
 }
 
 
+
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
@@ -48,12 +60,6 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
     
 }
-
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    [_shareText resignFirstResponder];
-}
-
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -66,14 +72,17 @@
     }
     
     
-    if ((![self.shareText.text isEqual:@""]))
-        
+    if (![self.shareText.text isEqual:@""])
     {
         [[SNSPostData sharedPostData] setWithText:self.shareText.text];
     }
     if ((_shareImage.image.size.height>1)&&(_shareImage.image.size.width>1))
     {
         [[SNSPostData sharedPostData] setWithImage:self.shareImage.image];
+    }
+    else
+    {
+        [[SNSPostData sharedPostData] setWithImage:[UIImage imageNamed:@"default.jpg"]];
     }
     
 }

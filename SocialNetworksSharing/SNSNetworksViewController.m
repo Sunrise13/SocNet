@@ -13,7 +13,6 @@
 #import "SNSFacebook.h"
 #import "SNSPostData.h"
 
-
 @interface SNSNetworksViewController() <AAShareBubblesDelegate>
 {
     
@@ -37,7 +36,7 @@
     shareBubbles.showTwitterBubble = YES;
     shareBubbles.showGooglePlusBubble = YES;
     shareBubbles.showVkBubble = YES;
-    shareBubbles.showInstagramBubble = YES;
+    //shareBubbles.showInstagramBubble = YES;
     shareBubbles.showLinkedInBubble=YES;
     [shareBubbles show];
     
@@ -50,7 +49,7 @@
 }
 -(void)aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:(AAShareBubbleType)bubbleType
 {
-    SNSSocialNetworkType type;
+    SNSSocialNetworkType type = SNSSocialNetworkTypeFacebook;
     switch(bubbleType)
     {
         case AAShareBubbleTypeFacebook: type=SNSSocialNetworkTypeFacebook; break;
@@ -65,7 +64,9 @@
     
     //[_network share];
     
-    //[self.navigationController pushViewController:_network.controller animated:YES];
+
+    [socialNetwork share];
+
 }
 
 -(void)aaShareBubblesDidHide {

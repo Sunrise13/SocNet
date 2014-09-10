@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SNSAppDelegate : UIResponder <UIApplicationDelegate>
+@interface SNSAppDelegate : UIResponder <UIApplicationDelegate> {
+}
 
 @property (strong, nonatomic) UIWindow *window;
 

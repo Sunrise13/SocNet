@@ -10,12 +10,13 @@
 
 #import <Social/Social.h>
 #import <Accounts/Accounts.h>
+#import "SNSPostData.h"
 
 @implementation SNSFacebook
 
 
 
-- (void) shareText:(NSString *)text image:(UIImage *)image
+- (void) share
 {
     
     @try {
@@ -23,17 +24,15 @@
         {
             SLComposeViewController *slcontroller = [SLComposeViewController
                                                      composeViewControllerForServiceType:SLServiceTypeFacebook];
-            if (![((SNSViewController*)self.controller.mainController).shareText.text  isEqual:@""]){
-                [slcontroller setInitialText:((SNSViewController*)self.controller.mainController).shareText.text];
-            }
-            if ((((SNSViewController*)self.controller.mainController).shareImage.image.size.height>1) && (((SNSViewController*)self.controller.mainController).shareImage.image.size.height>1)){
-                [slcontroller addImage:((SNSViewController*)self.controller.mainController).shareImage.image];
-            }
-            //[slcontroller addURL:[NSURL URLWithString:@"www.google.com.ua/"]];
-            slcontroller.completionHandler = ^(SLComposeViewControllerResult result){
-                NSLog(@"Completed");
-            };
-            [((SNSViewController*)self.controller.mainController) presentViewController:slcontroller animated:YES completion:nil];
+            
+            NSString* txt = [[SNSPostData sharedPostData] getText];
+            UIImage* img = [[SNSPostData sharedPostData] getImage];
+
+            [slcontroller setInitialText: txt];
+            [slcontroller addImage: img];
+              
+
+            [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:slcontroller animated:YES completion:nil];
         }else {
             UIAlertView* alert = [[UIAlertView alloc] initWithTitle:@"Error login account!"
                                                             message:@"Please setup user account!"
@@ -64,6 +63,9 @@
         
     }
 }
+
+
+
 -(void)hello
 {
     NSLog(@"Hello");

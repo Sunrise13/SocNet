@@ -24,38 +24,80 @@
             <objects>
                 <viewController id="lCZ-tg-VTf" customClass="SNSViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ULn-MZ-GQA"/>
-                        <viewControllerLayoutGuide type="bottom" id="OPM-bI-RGA"/>
+                        <viewControllerLayoutGuide type="top" id="Btd-xn-aUb"/>
+                        <viewControllerLayoutGuide type="bottom" id="u6d-RY-JUw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="2To-R1-vD2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B09-jG-7vC">
-                                <rect key="frame" x="137" y="416" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="z5k-AA-zRt" kind="push" identifier="Button" id="wLr-L7-iqe"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="sdbfkdsfgdsgds" translatesAutoresizingMaskIntoConstraints="NO" id="RqX-ji-k1M">
-                                <rect key="frame" x="40" y="254" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Byv-NX-PuF">
-                                <rect key="frame" x="40" y="101" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k5E-qF-Ag6">
+                                <rect key="frame" x="0.0" y="-103" width="320" height="671"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GUr-gm-YA6">
+                                        <rect key="frame" x="0.0" y="96" width="320" height="575"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RqX-ji-k1M">
+                                                <rect key="frame" x="40" y="20" width="240" height="115"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                            </textView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="default.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Byv-NX-PuF">
+                                                <rect key="frame" x="40" y="152" width="240" height="115"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="240" id="BJS-cD-h5A"/>
+                                                    <constraint firstAttribute="height" constant="115" id="xGR-j8-pl4"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B09-jG-7vC">
+                                                <rect key="frame" x="132" y="299" width="56" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <state key="normal" title="Share">
+                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="z5k-AA-zRt" kind="push" identifier="Button" id="wLr-L7-iqe"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Byv-NX-PuF" firstAttribute="top" secondItem="RqX-ji-k1M" secondAttribute="bottom" constant="17" id="MjG-f9-2cY"/>
+                                            <constraint firstItem="Byv-NX-PuF" firstAttribute="leading" secondItem="GUr-gm-YA6" secondAttribute="leading" constant="40" id="QKa-Rd-YgL"/>
+                                            <constraint firstAttribute="centerX" secondItem="Byv-NX-PuF" secondAttribute="centerX" id="am2-ah-bSF"/>
+                                            <constraint firstAttribute="trailing" secondItem="Byv-NX-PuF" secondAttribute="trailing" constant="40" id="eqJ-Yz-pIX"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="GUr-gm-YA6" secondAttribute="bottom" id="91V-0K-pTu"/>
+                                    <constraint firstItem="GUr-gm-YA6" firstAttribute="leading" secondItem="k5E-qF-Ag6" secondAttribute="leading" id="9JE-gy-eUJ"/>
+                                    <constraint firstItem="GUr-gm-YA6" firstAttribute="top" secondItem="k5E-qF-Ag6" secondAttribute="top" constant="96" id="Wqe-iq-Nf5"/>
+                                    <constraint firstAttribute="trailing" secondItem="GUr-gm-YA6" secondAttribute="trailing" id="XbV-Qk-Qic"/>
+                                    <constraint firstAttribute="bottom" secondItem="GUr-gm-YA6" secondAttribute="bottom" id="q8v-Uj-yrW"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="u6d-RY-JUw" firstAttribute="top" secondItem="k5E-qF-Ag6" secondAttribute="bottom" id="L2z-Fo-l4N"/>
+                            <constraint firstAttribute="trailing" secondItem="k5E-qF-Ag6" secondAttribute="trailing" id="Uhq-f3-h2D"/>
+                            <constraint firstItem="k5E-qF-Ag6" firstAttribute="leading" secondItem="2To-R1-vD2" secondAttribute="leading" id="c15-Pl-F72"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="3mT-BH-Ni4"/>
+                    <navigationItem key="navigationItem" id="3mT-BH-Ni4">
+                        <barButtonItem key="leftBarButtonItem" systemItem="camera" id="4zO-NW-4uZ">
+                            <connections>
+                                <action selector="cameraPressed:" destination="lCZ-tg-VTf" id="AKN-Ca-PWK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="shareImage" destination="Byv-NX-PuF" id="stV-9j-5lf"/>
                         <outlet property="shareText" destination="RqX-ji-k1M" id="yFT-01-uBL"/>
@@ -63,15 +105,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ulD-7S-G69" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="109" y="-44"/>
+            <point key="canvasLocation" x="127" y="-50"/>
         </scene>
         <!--Networks View Controller-->
         <scene sceneID="cmU-pK-qp8">
             <objects>
                 <viewController id="z5k-AA-zRt" customClass="SNSNetworksViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="02l-XP-nn9"/>
-                        <viewControllerLayoutGuide type="bottom" id="Vuu-wH-pyk"/>
+                        <viewControllerLayoutGuide type="top" id="WBm-Ag-UKI"/>
+                        <viewControllerLayoutGuide type="bottom" id="mRc-BP-tZM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ov6-Mr-079">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -85,6 +127,9 @@
             <point key="canvasLocation" x="492" y="-44"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="default.jpg" width="144" height="90"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
