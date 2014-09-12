@@ -28,25 +28,28 @@
         self.shareViewController= [[REComposeViewController alloc] init];
         self.shareViewController.title = @"LinkedIn";
         self.shareViewController.hasAttachment = NO;
-        self.shareViewController.placeholderText=@"Type text";
+        self.shareViewController.text=[[SNSPostData sharedPostData] getText];
         self.shareViewController.completionHandler=^(REComposeViewController *composeViewController, REComposeResult result)
         {
-            [composeViewController dismissViewControllerAnimated:YES completion:nil];
+            [composeViewController dismissViewControllerAnimated:YES completion:^(void)
+             {
+                 if (result == REComposeResultCancelled)
+                 {
+                     NSLog(@"Cancelled");
+                     // Make here dismiss
+                 }
+                 
+                 if (result == REComposeResultPosted)
+                 {
+                     NSLog(@"Text: %@", composeViewController.text);
+                     [[SNSPostData sharedPostData] setPostText:composeViewController.text];
+                     SLVLinkedInApi * linkedInAPI=[SLVLinkedInApi new];
+                     [linkedInAPI settingDataSource:[SNSPostData sharedPostData]];
+                     [linkedInAPI share];
+                 }
+             }];
             
-            if (result == REComposeResultCancelled)
-            {
-                NSLog(@"Cancelled");
-                // Make here dismiss
-            }
             
-            if (result == REComposeResultPosted)
-            {
-                NSLog(@"Text: %@", composeViewController.text);
-                [[SNSPostData sharedPostData] setPostText:composeViewController.text];
-                SLVLinkedInApi * linkedInAPI=[SLVLinkedInApi new];
-                [linkedInAPI settingDataSource:[SNSPostData sharedPostData]];
-                [linkedInAPI share];
-            }
 
         };
     }

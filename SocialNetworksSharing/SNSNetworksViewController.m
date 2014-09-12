@@ -41,10 +41,18 @@
     
 
 }
+-(void)viewDidAppear:(BOOL)animated
+{
+    NSLog(@"View appeared %@",self);
+}
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    
+    NSLog(@"View will appear %@",self);
+}
+-(void) viewWillDisappear:(BOOL)animated
+{
+    NSLog(@" %@View will disapper",self);
 }
 -(void)aaShareBubbles:(AAShareBubbles *)shareBubbles tappedBubbleWithType:(AAShareBubbleType)bubbleType
 {

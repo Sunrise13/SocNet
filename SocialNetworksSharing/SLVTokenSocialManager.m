@@ -7,11 +7,12 @@
 //
 
 #import "SLVTokenSocialManager.h"
-#import "SLVOAuthSetup.h"
+#import "SNSOAuthSetupFactory.h"
 
 @interface SLVTokenSocialManager()
 
-@property (nonatomic) SLVOAuthSetup *oauthSetup;
+@property (nonatomic) SNSOAuthSetupFactory * oauthSetupFactory;
+@property (nonatomic) id<SNSOAuthSetupProtocol> oauthSetup;
 @property (nonatomic) SLVDBManager *dbManager;
 
 @end
@@ -21,14 +22,30 @@
 -(void)getUser
 {
     NSFetchRequest *request=[[NSFetchRequest alloc] initWithEntityName:@"Users"];
-    NSPredicate *pred=[NSPredicate predicateWithFormat:@"serviceType==[c]\"LinkedIn\""]; //serviceType
+    NSString * serviceName;
+    switch(self.type)
+    {
+        case SNSSocialNetworkTypeLinkedIn:
+            serviceName=@"LinkedIn";
+            break;
+        case SNSSocialNetworkTypeVkontakte:
+            //Add name of your serive Sasha
+            break;
+        default:
+            [NSException raise:@"No service name string" format:@"Assign name of your service with enum number:%i to serviceName variable in switch statment",self.type];
+   
+    }
+    
+    NSPredicate *pred=[NSPredicate predicateWithFormat:@"serviceType==[c]\"%@\"", serviceName];
     [request setPredicate:pred];
     NSArray *service=[self.dbManager.context executeFetchRequest:request error:nil];
     if([service count]==0)
     {
-        self.oauthSetup=[SLVOAuthSetup new];
-        self.oauthSetup.delegate=self;
-        [self.oauthSetup setupWithServiceType:self.type];
+        self.oauthSetupFactory=[SNSOAuthSetupFactory new];
+        self.oauthSetup=[_oauthSetupFactory getSetupWithType:self.type];
+        
+        [self.oauthSetup setDelegate:self];
+        [self.oauthSetup setup];
         
     }
     else
@@ -43,6 +60,5 @@
 {
     [self.delegate userData:user];
 }
-
 
 @end

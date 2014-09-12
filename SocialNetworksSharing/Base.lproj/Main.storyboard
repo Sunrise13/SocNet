@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="anH-w9-KYD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="anH-w9-KYD">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -31,22 +31,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k5E-qF-Ag6">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5E-qF-Ag6">
                                 <rect key="frame" x="0.0" y="-103" width="320" height="671"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GUr-gm-YA6">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GUr-gm-YA6">
                                         <rect key="frame" x="0.0" y="96" width="320" height="575"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RqX-ji-k1M">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RqX-ji-k1M">
                                                 <rect key="frame" x="40" y="20" width="240" height="115"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="115" id="lRO-ux-BZ6"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                             </textView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="default.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Byv-NX-PuF">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Byv-NX-PuF">
                                                 <rect key="frame" x="40" y="152" width="240" height="115"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <constraints>
@@ -54,9 +57,13 @@
                                                     <constraint firstAttribute="height" constant="115" id="xGR-j8-pl4"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B09-jG-7vC">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B09-jG-7vC">
                                                 <rect key="frame" x="132" y="299" width="56" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="ELh-7E-Unw"/>
+                                                    <constraint firstAttribute="width" constant="56" id="RWB-9D-6kC"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                 <state key="normal" title="Share">
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,10 +75,16 @@
                                         </subviews>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="B09-jG-7vC" secondAttribute="bottom" constant="246" id="DaQ-AW-y9X"/>
+                                            <constraint firstItem="RqX-ji-k1M" firstAttribute="trailing" secondItem="Byv-NX-PuF" secondAttribute="trailing" id="EnK-tY-8hQ"/>
+                                            <constraint firstItem="RqX-ji-k1M" firstAttribute="leading" secondItem="Byv-NX-PuF" secondAttribute="leading" id="Jqo-vr-Kj1"/>
                                             <constraint firstItem="Byv-NX-PuF" firstAttribute="top" secondItem="RqX-ji-k1M" secondAttribute="bottom" constant="17" id="MjG-f9-2cY"/>
                                             <constraint firstItem="Byv-NX-PuF" firstAttribute="leading" secondItem="GUr-gm-YA6" secondAttribute="leading" constant="40" id="QKa-Rd-YgL"/>
                                             <constraint firstAttribute="centerX" secondItem="Byv-NX-PuF" secondAttribute="centerX" id="am2-ah-bSF"/>
+                                            <constraint firstItem="B09-jG-7vC" firstAttribute="top" secondItem="Byv-NX-PuF" secondAttribute="bottom" constant="32" id="d3b-6G-xkc"/>
                                             <constraint firstAttribute="trailing" secondItem="Byv-NX-PuF" secondAttribute="trailing" constant="40" id="eqJ-Yz-pIX"/>
+                                            <constraint firstItem="RqX-ji-k1M" firstAttribute="centerX" secondItem="B09-jG-7vC" secondAttribute="centerX" id="mMp-Dm-Ztu"/>
+                                            <constraint firstItem="RqX-ji-k1M" firstAttribute="top" secondItem="GUr-gm-YA6" secondAttribute="top" constant="20" symbolic="YES" id="pR6-JY-x6K"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -89,6 +102,7 @@
                             <constraint firstItem="u6d-RY-JUw" firstAttribute="top" secondItem="k5E-qF-Ag6" secondAttribute="bottom" id="L2z-Fo-l4N"/>
                             <constraint firstAttribute="trailing" secondItem="k5E-qF-Ag6" secondAttribute="trailing" id="Uhq-f3-h2D"/>
                             <constraint firstItem="k5E-qF-Ag6" firstAttribute="leading" secondItem="2To-R1-vD2" secondAttribute="leading" id="c15-Pl-F72"/>
+                            <constraint firstItem="k5E-qF-Ag6" firstAttribute="top" secondItem="2To-R1-vD2" secondAttribute="top" constant="-103" id="e26-rq-01K"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3mT-BH-Ni4">

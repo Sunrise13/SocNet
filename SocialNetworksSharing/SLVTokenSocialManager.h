@@ -7,7 +7,7 @@
 //
 
 #import "SLVDBManager.h"
-#import "SLVOAuthSetup.h"
+#import "SNSOAuthSetupProtocol.h"
 #import "SNSSocialNetworkType.h"
 
 
@@ -17,11 +17,12 @@
 @protocol SLVTokenSocialManagerDelegate <NSObject>
 
 @optional
+
 -(void)userData:(Users *)user;
 
 @end
 
-@interface SLVTokenSocialManager : NSObject <SLVOAuthSetupDelegate>
+@interface SLVTokenSocialManager : NSObject <SNSOAuthSetupDelegate>
 
 @property (nonatomic) id <SLVTokenSocialManagerDelegate> delegate;
 @property (nonatomic) SNSSocialNetworkType type;

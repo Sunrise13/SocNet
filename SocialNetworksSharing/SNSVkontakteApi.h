@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 //#import "SLVViewController.h"
 #import "Users.h"
-#import "SLVOAuthSetup.h"
+//#import "SLVOAuthSetup.h"
 #import "SLVTokenSocialManager.h"
 #import "SNSSocialNetwork.h"
 #import "SNSPostData.h"
@@ -31,6 +31,6 @@
 @property(nonatomic) __block NSDictionary * response;
 @property(nonatomic) SLVTokenSocialManager *oauth;
 
-@property(nonatomic) SLVOAuthSetup * setOauth;
+//@property(nonatomic) SLVOAuthSetup * setOauth;
 
 @end

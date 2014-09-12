@@ -7,7 +7,6 @@
 //
 
 #import "SLVLinkedInApi.h"
-#import "SLVOAuthSetup.h"
 #import <REComposeViewController.h>
 
 @implementation SLVLinkedInApi

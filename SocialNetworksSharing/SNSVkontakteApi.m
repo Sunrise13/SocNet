@@ -38,8 +38,8 @@
 {
     
     NSString * accessToken = @"944fa3a2506339d0be211fb2985c72f8ae7affcebac18e433e5de4c923114393efdcb8b59056baf9af353"; //should be from DB
-    self.setOauth=[SLVOAuthSetup new];
-    [self.setOauth setupWithServiceType:SNSSocialNetworkTypeVkontakte];
+   // self.setOauth=[SLVOAuthSetup new];
+    //[self.setOauth setupWithServiceType:SNSSocialNetworkTypeVkontakte];
     
     UIImage *image = [[SNSPostData sharedPostData] getImage];
     
